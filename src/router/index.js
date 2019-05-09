@@ -6,6 +6,7 @@ import index from '@/pages/index'
 import login from '@/pages/login'
 import UsList from '@/components/content/sps-usList/MmUsersList'
 import withdrawlist from '@/components/finance/withdraw-list'
+import paylist from '@/components/finance/pay-list'
 
 Vue.use(Router)
 
@@ -29,6 +30,10 @@ const router = new Router({
         {
           path:"/withdraw-list",
           component:withdrawlist
+        },
+        {
+          path:"/pay-list",
+          component:paylist
         }
       ]
     }

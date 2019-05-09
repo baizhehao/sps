@@ -18,14 +18,14 @@
               <Icon type="ios-search"></Icon>
               <span>会员管理</span>
             </template>
-            <router-link to='index/usList'><MenuItem name="1-1">用户列表</MenuItem></router-link>
+            <MenuItem name="1-1" @click.native='routerUs("usList")'>用户列表</MenuItem>
           </Submenu>
           <Submenu name="3">
             <template  slot="title">
               <Icon type="ios-settings"></Icon>
               <span>商品管理</span>
             </template>
-            <MenuItem name="1-1">商品列表</MenuItem>
+            <MenuItem name="1-1" @click.native='routerUs("shopList")'>商品列表</MenuItem>
             <MenuItem name="1-2">商品分类</MenuItem>
             <MenuItem name="1-3">品牌列表</MenuItem>
             <MenuItem name="1-3">商品类型</MenuItem>
@@ -157,11 +157,13 @@
             this.$refs.side1.toggleCollapse();
             console.log(document.querySelectorAll(".ivu-menu-submenu-title-icon"))
             document.querySelectorAll(".ivu-menu-submenu-title-icon").forEach((itme,index)=>{
-                  // console.log(itme.style.display)
                   if(itme.style.display="block"){
                     itme.style.display="none"
                   }
               })
+            },
+            routerUs(name){
+              this.$router.push({path:'/index/'+name})
             }
         },
         mounted:function(){
@@ -171,6 +173,7 @@
 </script>
 
 <style scoped>
+::-webkit-scrollbar {display:none}
   .layout{
     border: 1px solid #d7dde4;
     background: #f5f7f9;

@@ -5,7 +5,7 @@ import Router from 'vue-router'
 import index from '@/pages/index'
 import login from '@/pages/login'
 import UsList from '@/components/content/sps-usList/MmUsersList'
-import ShopList from '@/components/content/sps-shopManagement/shopList'
+import ShopList from '@/components/content/sps-shopManagement/sps-list/sps-shop-list'
 
 Vue.use(Router)
 

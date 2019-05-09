@@ -133,7 +133,7 @@ activated() {}, //如果页面有keep-alive缓存功能，这个函数会触发
   font-size:20px;
 }
 .colmd{
-  width:42%;
+  width:48%;
   /* height: 205px; */
   height: auto;
   /* overflow: hidden; */

@@ -113,7 +113,7 @@ spsCard_1{
   font-size:20px;
 }
 .colmd{
-  width:42%;
+  width:48%;
   /* height: 205px; */
   height: auto;
   overflow: hidden;

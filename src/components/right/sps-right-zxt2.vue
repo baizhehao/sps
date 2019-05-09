@@ -106,7 +106,7 @@ activated() {}, //如果页面有keep-alive缓存功能，这个函数会触发
 </script>
 <style  scoped>
 .col{
-   width:42%;
+   width:48%;
   height: 342px;
   background-color: white;
   /* overflow: hidden; */

@@ -18,7 +18,7 @@
               <Icon type="ios-search"></Icon>
               <span>会员管理</span>
             </template>
-            <router-link to='index/usList'><MenuItem name="1-1">用户列表</MenuItem></router-link>
+            <router-link to='usList'><MenuItem name="1-1">用户列表</MenuItem></router-link>
           </Submenu>
           <Submenu name="3">
             <template  slot="title">
@@ -67,7 +67,7 @@
               <Icon type="ios-settings"></Icon>
               <span>财务管理</span>
             </template>
-            <MenuItem name="1-1">提现列表</MenuItem>
+            <router-link to="withdraw-list"><MenuItem name="1-1">提现列表</MenuItem></router-link>
             <MenuItem name="1-2">支付单列表</MenuItem>
             <MenuItem name="1-3">退款单列表</MenuItem>
             <MenuItem name="1-3">账户资金管理</MenuItem>
@@ -242,4 +242,5 @@
   .ivu-menu-dark.ivu-menu-vertical .ivu-menu-item:hover{
     background:#FF7159;
   }
+  ::-webkit-scrollbar {display:none}
 </style>

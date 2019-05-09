@@ -4,7 +4,6 @@ import Router from 'vue-router'
 
 import index from '@/pages/index'
 import login from '@/pages/login'
-
 Vue.use(Router)
 
 

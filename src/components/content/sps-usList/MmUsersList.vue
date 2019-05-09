@@ -395,4 +395,13 @@ input::placeholder{
     border-right:none;
 }
 
+body{
+  font-size:14px;
+  background:#f2f2f2;
+}
+html{
+  color: rgb(102, 102, 102);
+}
+
+
 </style>

@@ -62,7 +62,9 @@
             </template>
             <MenuItem name="1-1">促销列表</MenuItem>
             <MenuItem name="1-2">团购秒杀列表</MenuItem>
+           <router-link to="/youhui">
             <MenuItem name="1-3">优惠卷列表</MenuItem>
+           </router-link>
           </Submenu>
           <Submenu name="7">
             <template  slot="title">

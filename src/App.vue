@@ -22,8 +22,10 @@ html,body{
   height: 100%;
 }
 body{
-	font-family:'STHeiti', 'Microsoft YaHei', 'Helvetica', 'Arial', 'sans-serif','微软雅黑';
-  width: 100%;
+/* font-family:'STHeiti', 'Microsoft YaHei', 'Helvetica', 'Arial', 'sans-serif','微软雅黑'; */
+ 	/*  width: 100%; */
+  line-height: 24px;
+  font: 14px 'Helvetica Neue','Helvetica','PingFang SC','Tahoma','Arial','sans-serif';
 }
 ul,ol{
 	list-style:none;

@@ -7,38 +7,38 @@
      </spsCard>
      <div class="colmd_2">
           <div class="colmd1">
-            <sapn class="iconfont icon-shangpin icon"></sapn>
+            <span class="iconfont icon-shangpin icon"></span>
             <p>商品</p>
           </div>
            <div class="colmd1">
-            <sapn class="iconfont icon-dd icon"></sapn>
+            <span class="iconfont icon-dd icon"></span>
             <p>订单</p>
           </div>
            <div class="colmd1">
-            <sapn class="iconfont icon-huiyuan21 icon"></sapn>
+            <span class="iconfont icon-huiyuan21 icon"></span>
             <p>会员</p>
           </div>
            <div class="colmd1">
-            <sapn class="iconfont icon-laba icon"></sapn>
+            <span class="iconfont icon-laba icon"></span>
             <p>公告</p>
           </div>
 
      </div>
       <div class="colmd_2">
           <div class="colmd1">
-            <sapn class="iconfont icon-cuxiao icon"></sapn>
+            <span class="iconfont icon-cuxiao icon"></span>
             <p>促销</p>
           </div>
            <div class="colmd1">
-            <sapn class="iconfont icon-peisong icon"></sapn>
+            <span class="iconfont icon-peisong icon"></span>
             <p>配送</p>
           </div>
            <div class="colmd1">
-            <sapn class="iconfont icon-zhifufangshi icon"></sapn>
+            <span class="iconfont icon-zhifufangshi icon"></span>
             <p>支付方式</p>
           </div>
            <div class="colmd1">
-            <sapn class="iconfont icon-dianpushezhi icon"></sapn>
+            <span class="iconfont icon-dianpushezhi icon"></span>
             <p>店铺设置</p>
           </div>
 

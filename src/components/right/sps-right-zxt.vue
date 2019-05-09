@@ -11,6 +11,7 @@
 //例如：import 《组件名称》 from '《组件路径》';
 import zxt1 from "./sps-right-zxt1";
 import zxt2 from "./sps-right-zxt2";
+
 export default {
 //import引入的组件需要注入到对象中才能使用
 components: {

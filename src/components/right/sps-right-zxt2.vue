@@ -1,11 +1,11 @@
 <!--  -->
 <template>
 <div class="col">
-   <spsCard class="Card">
-      <span class="iconfont icon-dd"></span>
-          <p>订单统计</p>
+     <spsCard class="Card">
+      <span class="iconfont icon-huiyuan21"></span>
+          <p>会员统计</p>
    </spsCard>
-   <div id="main"></div>
+    <div id="main2"></div>
 </div>
 </template>
 
@@ -16,7 +16,7 @@ import spsCard from "./sps-card";
 export default {
 //import引入的组件需要注入到对象中才能使用
 components: {
-  spsCard
+  spsCard,
 },
 data() {
 //这里存放数据
@@ -40,10 +40,10 @@ created() {
 //生命周期 - 挂载完成（可以访问DOM元素）
 //模板编译完毕，数据也挂载完毕
 mounted() {
-  var myChart = this.$echarts.init(document.getElementById('main'));
+   var myChart = this.$echarts.init(document.getElementById('main2'));
   var option = {
     title: {
-        text: '最近7天量统计',
+        text: '',
         textStyle:{
             fontSize:"16",
         }
@@ -52,15 +52,15 @@ mounted() {
         trigger: 'axis'
     },
     legend: {
-        data:['已支付','已发货'],
+        data:['新增记录','活跃记录'],
         textStyle:{
           marginLeft:20,
         }
     },
     grid: {
-        left: '15%',
-        right: '15%',
-        bottom: '3%',
+        left: '10%',
+        right: '20%',
+        bottom: '5%',
         containLabel: true
     },
     toolbox: {
@@ -78,21 +78,22 @@ mounted() {
     },
     series: [
         {
-            name:'已支付',
+            name:'新增记录',
             type:'line',
             stack: '总量',
-            data:[120, 132, 101, 134, 90, 230, 210]
+            data:[0, 0, 0, 0, 0, 0, 0]
         },
         {
-            name:'已发货',
+            name:'活跃记录',
             type:'line',
             stack: '总量',
-            data:[220, 182, 191, 234, 290, 330, 310]
+            data:[75, 182, 131, 184, 237, 130, 310]
         },
 
     ]
 };
     myChart.setOption(option);
+
 },
 beforeCreate() {}, //生命周期 - 创建之前
 beforeMount() {}, // 模板编译(template)数据挂载之前执行的钩子函数
@@ -105,18 +106,17 @@ activated() {}, //如果页面有keep-alive缓存功能，这个函数会触发
 </script>
 <style  scoped>
 .col{
-  width:400px;
+   width:42%;
   height: 342px;
   background-color: white;
-  overflow: hidden;
+  /* overflow: hidden; */
    /* margin-bottom: 10px; */
 }
 .Card{
   margin-bottom: 10px;
 }
-#main{
-  background-color: white;
-  width: 400px;
+#main2{
+  width: 500px;
   height: 300px;
   padding-bottom: 10px;
 }

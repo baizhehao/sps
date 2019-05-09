@@ -7,7 +7,7 @@
      </spsCard>
       <div class="colmd_2">
          <table class="tab">
-           <tr :key="index" :class="{on:index%2==0,off:index%2!=0}">
+           <tr>
              <td>产品名称</td>
              <td>Jshop-b2c标准版</td>
            </tr>
@@ -21,7 +21,7 @@
            </tr>
             <tr>
              <td>产品授权</td>
-             <td> <i-Button type="error">下载更新</i-Button></td>
+             <td><i-button type="error">错误按钮</i-button></td>
            </tr>
 
 

@@ -1,13 +1,17 @@
 <template>
-   
+  <spsSide></spsSide>
 </template>
 
 <script>
-export default {
-
-}
+  import spsSide from "../components/sps-side"
+  export default {
+    name: 'index',
+    components:{
+      spsSide,
+    }
+  }
 </script>
 
-<style scoped>
-
+<style>
+::-webkit-scrollbar {display:none}
 </style>

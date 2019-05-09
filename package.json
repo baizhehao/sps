@@ -75,5 +75,18 @@
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
-  ]
+  ],
+  "main": ".postcssrc.js",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/baizhehao/sps.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/baizhehao/sps/issues"
+  },
+  "homepage": "https://github.com/baizhehao/sps#readme"
 }

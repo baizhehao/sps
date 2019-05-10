@@ -180,11 +180,9 @@
               <Dropdown>
                 <Icon class='back' type="ios-arrow-down" size="20" href="javascript:void(0)"/>
                 <DropdownMenu slot="list" class="list">
-                  <DropdownItem>驴打滚</DropdownItem>
-                  <DropdownItem>炸酱面</DropdownItem>
-                  <DropdownItem>豆汁儿</DropdownItem>
-                  <DropdownItem>冰糖葫芦</DropdownItem>
-                  <DropdownItem>北京烤鸭</DropdownItem>
+                  <DropdownItem>关闭当前标签页</DropdownItem>
+                  <DropdownItem>关闭其他标签页</DropdownItem>
+                  <DropdownItem>关闭全部标签页</DropdownItem>
                 </DropdownMenu>
               </Dropdown>
             </div>

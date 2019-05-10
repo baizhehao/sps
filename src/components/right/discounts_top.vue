@@ -96,7 +96,7 @@ activated() {}, //如果页面有keep-alive缓存功能，这个函数会触发
 </script>
 <style  scoped>
 .box{
-  width: 100%;
+  width: 97%;
   height: 100px;
   background-color: white;
   border: 1px solid #e6e6e6;

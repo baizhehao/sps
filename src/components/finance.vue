@@ -1,25 +1,20 @@
 <!--  -->
 <template>
 <div>
-   <div class="top">
-      <top class="top"></top>
-      <zxt></zxt>
-    </div>
-    <logging></logging>
+  <finance_top/>
+  <finance_zxt/>
 </div>
 </template>
 
 <script>
 //这里可以导入其他文件（比如：组件，工具js，第三方插件js，json文件，图片文件等等）
 //例如：import 《组件名称》 from '《组件路径》';
-import top from "./right/sps-right-top";
-import zxt from "./right/sps-right-zxt";
-import logging from "./right/sps-logging";
+import finance_top from "./right/finance_top"
+import finance_zxt from "./right/finance_zxt"
 export default {
-  
 //import引入的组件需要注入到对象中才能使用
 components: {
-  top,zxt,logging
+  finance_top,finance_zxt
 },
 data() {
 //这里存放数据
@@ -55,8 +50,5 @@ activated() {}, //如果页面有keep-alive缓存功能，这个函数会触发
 }
 </script>
 <style  scoped>
-.top{
-  margin-bottom: 15px;
-}
 
 </style>

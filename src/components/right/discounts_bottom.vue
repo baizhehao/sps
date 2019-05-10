@@ -1,12 +1,7 @@
 <!--  -->
 <template>
 <div class="tab">
-  <!-- <Table border :columns="columns7" :data="data6">
-    <Switch size="large">
-              <span slot="open">开启</span>
-                <span slot="close">关闭</span>
-             </Switch>
-  </Table> -->
+
 <Table :columns="historyColumns" :data="historyData"></Table>
       <Page :total="dataCount" :page-size="pageSize" show-total class="paging" @on-change="changepage"></Page>
 </div>
@@ -269,112 +264,6 @@ components: {},
 data() {
 //这里存放数据
 return {
-          // columns7: [
-          //           {
-          //               title: 'ID',
-          //               key: 'name',
-          //               render: (h, params) => {
-          //                   return h('div', [
-          //                       h('Icon', {
-          //                           props: {
-          //                               type: 'person'
-          //                           }
-          //                       }),
-          //                       h('strong', params.row.name)
-          //                   ]);
-          //               }
-          //           },
-          //           {
-          //               title: '优惠券名称',
-          //               key: 'age'
-          //           },
-          //           {
-          //               title: '权重',
-          //               key: 'weight'
-          //           },
-          //           {
-          //               title: '启用状态',
-          //               key: 'start'
-          //           },
-
-          //           {
-          //               title: '开始时间',
-          //               key: 'address'
-          //           },
-
-          //           {
-          //               title: '结束时间',
-          //               key: 'address2'
-          //           },
-          //           {
-          //               title: '操作',
-          //               key: 'action',
-          //               width: 150,
-          //               align: 'center',
-          //               render: (h, params) => {
-          //                   return h('div', [
-          //                       h('Button', {
-          //                           props: {
-          //                               type: 'primary',
-          //                               size: 'small'
-          //                           },
-          //                           style: {
-          //                               marginRight: '5px'
-          //                           },
-          //                           on: {
-          //                               click: () => {
-          //                                   this.show(params.index)
-          //                               }
-          //                           }
-          //                       }, '编辑'),
-          //                       h('Button', {
-          //                           props: {
-          //                               type: 'error',
-          //                               size: 'small'
-          //                           },
-          //                           on: {
-          //                               click: () => {
-          //                                   this.remove(params.index)
-          //                               }
-          //                           }
-          //                       }, '删除')
-          //                   ]);
-          //               }
-          //           }
-          //       ],
-          //       data6: [
-          //           {
-          //               name: '1',
-          //               age:  '满300减30',
-          //               address: '2019-05-01 00:00:00',
-          //               address2:'2020-05-01 00:00:00',
-          //               weight:100,
-          //               start:'',
-          //           },
-          //           {
-          //               name: '2',
-          //               age:  '满500减100',
-          //               address: '2019-05-01 00:00:00',
-          //               address2:'2020-05-01 00:00:00',
-          //                weight:200,
-          //           },
-          //           {
-          //               name: '3',
-          //               age: '满1000减300',
-          //               address: '2019-05-01 00:00:00',
-          //               address2:'2020-05-01 00:00:00',
-          //                weight:300,
-          //           },
-          //           {
-          //               name: '4',
-          //               age: '满2000减500',
-          //               address: '2019-05-01 00:00:00',
-          //               address2:'2020-05-01 00:00:00',
-          //                weight:400,
-          //           }
-          //       ]
-
-
 
           ajaxHistoryData:[],
                 // 初始化信息总条数
@@ -391,6 +280,31 @@ return {
                         key: 'shenpistatus'
                     },
                     {
+                        title: '启用状态',
+                        key: 'qiyong',
+                        // width:100,
+                        align:'center',
+                        render:(h,params) => {
+                         return h('i-switch',{
+                           props:{
+                             size:'large',
+                             value:params.row.commodityStatus
+                           },
+                           scopedSlots:{
+                             open:()=>h('span','启用'),
+                             close:()=>h('span','禁用')
+                           },
+                           on:{
+                             'on-change':(value)=>{
+                               console.log(value);
+                               this.sayHello();
+                             }
+                           }
+                         })
+                        }
+
+                    },
+                    {
                         title: '开始时间',
                         key: 'shenpicomments'
                     },
@@ -402,25 +316,36 @@ return {
                        title: '操作',
                         key: 'action',
                         width: 150,
-                        align: 'center',
                         render: (h, params) => {
-                            return h('div', [
-                                h('Button', {
-                                    props: {
-                                        type: 'error',
-                                        size: 'small'
-                                    },
-                                    on: {
-                                        click: () => {
-                                            this.remove(params.row)
-                                        }
-                                    }
-                                }, '删除')
-                            ]);
-                        }
-                        }
-
-                ],
+                         return h('div', [
+                                h('Button',{
+                              props: {
+                                type: 'primary',
+                                size: 'small'
+                              },
+                              style: {
+                                  marginRight: '5px'
+                                  },
+                            on: {
+                              click: () => {
+                                          this.editBus(params.row.params.index)
+                                         }
+                                 }
+                          },'编辑'),
+                          h('Button',{
+                          props: {
+                             type: 'error',
+                             size: 'small'
+                             },
+                             on: {
+                               click: () => {
+                               this.remove(params.index)
+                                  }
+                                }
+                        },'删除')
+                        ])
+                  }
+               }],
                 historyData: []
             }
 
@@ -431,16 +356,16 @@ computed: {},
 watch: {},
 //方法集合
 methods: {
-            // show (index) {
-            //     this.$Modal.info({
-            //         title: 'User Info',
-            //         content: `Name：${this.historyColumns[index].name}<br>Age：${this.historyColumns[index].age}<br>Address：${this.historyColumns[index].address}`
-            //     })
-            // },
-            remove (row) {
-                this.historyColumns.splice(row, 1);
-            },
+             remove(index) {
+                        this.historyData.splice(index, 1)
+                        },
 
+    editBus(item, index) {
+                this.handleModal = true
+                this.modalTitle = '修改'
+                this.itemIndex = index
+                this.formValidate = JSON.parse(JSON.stringify(item))
+            },
 
             // 获取历史记录信息
             handleListApproveHistory(){
@@ -461,6 +386,9 @@ methods: {
                 var _start = ( index - 1 ) * this.pageSize;
                 var _end = index * this.pageSize;
                 this.historyData = this.ajaxHistoryData.slice(_start,_end);
+            },
+            sayHello(){
+              console.log("这里将会发起一个ajax请求");
             }
 },
 //生命周期 - 创建完成（可以访问当前this实例）

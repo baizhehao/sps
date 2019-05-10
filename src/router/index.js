@@ -7,6 +7,7 @@ import login from '@/pages/login'
 import UsList from '@/components/content/sps-usList/MmUsersList'
 import sps_right from '@/components/sps_right'
 import youhui from '@/components/youhui'
+import finance from '@/components/finance'
 Vue.use(Router)
 
 
@@ -25,7 +26,8 @@ const router = new Router({
       children:[
         {path:"/usList",component:UsList},
         {path:"/sps_right",component:sps_right},
-        {path:"/youhui",component:youhui}
+        {path:"/youhui",component:youhui},
+        {path:"/finance",component:finance}
       ]
     }
   ]

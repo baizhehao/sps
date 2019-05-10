@@ -99,7 +99,9 @@
               <span>报表统计</span>
             </template>
             <MenuItem name="1-1">商品销量</MenuItem>
+              <router-link to='/finance'>
             <MenuItem name="1-2">财务收款</MenuItem>
+              </router-link>
             <MenuItem name="1-3">用户收藏统计</MenuItem>
             <MenuItem name="1-3">订单销量</MenuItem>
           </Submenu>

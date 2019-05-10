@@ -68,9 +68,9 @@
               <span>财务管理</span>
             </template>
             <router-link to="withdraw-list"><MenuItem name="1-1">提现列表</MenuItem></router-link>
-            <MenuItem name="1-2">支付单列表</MenuItem>
-            <MenuItem name="1-3">退款单列表</MenuItem>
-            <MenuItem name="1-3">账户资金管理</MenuItem>
+            <router-link to="pay-list"><MenuItem name="1-2">支付单列表</MenuItem></router-link>
+            <router-link to="refund-list"><MenuItem name="1-3">退款单列表</MenuItem></router-link>
+            <router-link to="account-manage"><MenuItem name="1-3">账户资金管理</MenuItem></router-link>
           </Submenu>
           <Submenu name="8">
             <template  slot="title">

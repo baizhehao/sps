@@ -7,6 +7,8 @@ import login from '@/pages/login'
 import UsList from '@/components/content/sps-usList/MmUsersList'
 import withdrawlist from '@/components/finance/withdraw-list'
 import paylist from '@/components/finance/pay-list'
+import refundlist from '@/components/finance/refund-list'
+import AccountManage from '@/components/finance/account-manage'
 
 Vue.use(Router)
 
@@ -34,6 +36,14 @@ const router = new Router({
         {
           path:"/pay-list",
           component:paylist
+        },
+        {
+          path:"/refund-list",
+          component:refundlist
+        },
+        {
+          path:"/account-manage",
+          component:AccountManage
         }
       ]
     }

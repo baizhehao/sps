@@ -1,6 +1,6 @@
 <template>
    <div class="box">
-       <div class="box-top">
+        <div class="box-top">
            <div class="box-top-center">
                <div class="layui-inline">
                     <label class="layui-form-label">支付单号：</label>
@@ -47,151 +47,14 @@
                     </Upload>
                </div>              
            </div>
-       </div>
-       <div class="box-top">
-           <div class="box-center" style="overflow:auto; width:100%; height:256px;">
-                <table class="tablebox" width="1300px" align="center" border="1" cellspacing="0" cellpadding="0" >
-                    <tr class="tr-1">
-                        <td class="td-02">
-                            <div style="border-bottom: 1px solid #e9e9e9;padding-bottom:6px;margin-bottom:6px;">
-                                <Checkbox
-                                    :indeterminate="indeterminate"
-                                    :value="checkAll"
-                                    @click.prevent.native="handleCheckAll">全选</Checkbox>
-                            </div>                            
-                        </td>  
-                        <td class="td-01 ds2">用户</td>
-                        <td class="td-02">金额</td>
-                        <td class="td-02 ds2">手续费</td>
-                        <td class="td-01 ">开户行</td>
-                        <td class="td-01 ds2">账号名</td>
-                        <td class="td-02">卡号</td>
-                        <td class="td-02 ds2">类型</td>
-                        <td class="td-01">创建时间</td>
-                        <td class="td-01 ds2">跟新时间</td>
-                        <td class="td-02">操作</td>  
-                    </tr>   
-                    <tr class="tr-2">
-                        <td class="td-02">
-                            <CheckboxGroup v-model="checkAllGroup" @on-change="checkAllGroupChange">
-                                <Checkbox label="1"></Checkbox>
-                            </CheckboxGroup>                            
-                        </td>  
-                        <td class="td-01 ds2">18675840083</td>
-                        <td class="td-02">12</td>
-                        <td class="td-02 ds2">0.00</td>
-                        <td class="td-02">广州机场路支行</td>
-                        <td class="td-02 ds2">李二狗</td>
-                        <td class="td-02">6222023602002322873</td>
-                        <td class="td-02 ds2">提现成功</td>
-                        <td class="td-02">2019-04-19 14:07:38</td>
-                        <td class="td-02 ds2">2019-04-19 14:10:38</td>
-                        <td class="td-02"></td>  
-                    </tr> 
-                    <tr class="tr-2">
-                        <td class="td-02">
-                            <CheckboxGroup v-model="checkAllGroup" @on-change="checkAllGroupChange">
-                                <Checkbox label="2"></Checkbox>
-                            </CheckboxGroup>                              
-                        </td>  
-                        <td class="td-01 ds2">18675840083</td>
-                        <td class="td-02">12</td>
-                        <td class="td-02 ds2">0.00</td>
-                        <td class="td-02">广州机场路支行</td>
-                        <td class="td-02 ds2">李二狗</td>
-                        <td class="td-02">6222023602002322873</td>
-                        <td class="td-02 ds2">提现成功</td>
-                        <td class="td-02">2019-04-19 14:07:38</td>
-                        <td class="td-02 ds2">2019-04-19 14:10:38</td>
-                        <td class="td-02"></td>  
-                    </tr> 
-                    <tr class="tr-2">
-                        <td class="td-02">
-                            <CheckboxGroup v-model="checkAllGroup" @on-change="checkAllGroupChange">
-                                <Checkbox label="3"></Checkbox>
-                            </CheckboxGroup>                           
-                        </td>  
-                        <td class="td-01 ds2">18675840083</td>
-                        <td class="td-02">12</td>
-                        <td class="td-02 ds2">0.00</td>
-                        <td class="td-02">广州机场路支行</td>
-                        <td class="td-02 ds2">李二狗</td>
-                        <td class="td-02">6222023602002322873</td>
-                        <td class="td-02 ds2">提现成功</td>
-                        <td class="td-02">2019-04-19 14:07:38</td>
-                        <td class="td-02 ds2">2019-04-19 14:10:38</td>
-                        <td class="td-02"></td>  
-                    </tr> 
-                    <tr class="tr-2">
-                        <td class="td-02">4</td>  
-                        <td class="td-01 ds2">18675840083</td>
-                        <td class="td-02">12</td>
-                        <td class="td-02 ds2">0.00</td>
-                        <td class="td-02">广州机场路支行</td>
-                        <td class="td-02 ds2">李二狗</td>
-                        <td class="td-02">6222023602002322873</td>
-                        <td class="td-02 ds2">提现成功</td>
-                        <td class="td-02">2019-04-19 14:07:38</td>
-                        <td class="td-02 ds2">2019-04-19 14:10:38</td>
-                        <td class="td-02"></td>  
-                    </tr> 
-                    <tr class="tr-2">
-                        <td class="td-02">5</td>  
-                        <td class="td-01 ds2">18675840083</td>
-                        <td class="td-02">12</td>
-                        <td class="td-02 ds2">0.00</td>
-                        <td class="td-02">广州机场路支行</td>
-                        <td class="td-02 ds2">李二狗</td>
-                        <td class="td-02">6222023602002322873</td>
-                        <td class="td-02 ds2">提现成功</td>
-                        <td class="td-02">2019-04-19 14:07:38</td>
-                        <td class="td-02 ds2">2019-04-19 14:10:38</td>
-                        <td class="td-02"></td>  
-                    </tr> 
-                    <tr class="tr-2">
-                        <td class="td-02">6</td>  
-                        <td class="td-01 ds2">18675840083</td>
-                        <td class="td-02">12</td>
-                        <td class="td-02 ds2">0.00</td>
-                        <td class="td-02">广州机场路支行</td>
-                        <td class="td-02 ds2">李二狗</td>
-                        <td class="td-02">6222023602002322873</td>
-                        <td class="td-02 ds2">提现成功</td>
-                        <td class="td-02">2019-04-19 14:07:38</td>
-                        <td class="td-02 ds2">2019-04-19 14:10:38</td>
-                        <td class="td-02"></td>  
-                    </tr> 
-                    <tr class="tr-2">
-                        <td class="td-02">7</td>  
-                        <td class="td-01 ds2">18675840083</td>
-                        <td class="td-02">12</td>
-                        <td class="td-02 ds2">0.00</td>
-                        <td class="td-02">广州机场路支行</td>
-                        <td class="td-02 ds2">李二狗</td>
-                        <td class="td-02">6222023602002322873</td>
-                        <td class="td-02 ds2">提现成功</td>
-                        <td class="td-02">2019-04-19 14:07:38</td>
-                        <td class="td-02 ds2">2019-04-19 14:10:38</td>
-                        <td class="td-02"></td>  
-                    </tr> 
-                    <tr class="tr-2">
-                        <td class="td-02">1</td>  
-                        <td class="td-01 ds2">18675840083</td>
-                        <td class="td-02">12</td>
-                        <td class="td-02 ds2">0.00</td>
-                        <td class="td-02">广州机场路支行</td>
-                        <td class="td-02 ds2">李二狗</td>
-                        <td class="td-02">6222023602002322873</td>
-                        <td class="td-02 ds2">提现成功</td>
-                        <td class="td-02">2019-04-19 14:07:38</td>
-                        <td class="td-02 ds2">2019-04-19 14:10:38</td>
-                        <td class="td-02"></td>  
-                    </tr> 
-                </table>
-                </div>
-                <Page :total="100" show-sizer />
-            </div>
         </div>
+        <div style="background:white; height:300px; border: 1px solid #e6e6e6;">
+            <div class="box-top" style="height:250px">
+                <Table border ref="selection" :columns="columns4" :data="data1"  width="1050"></Table>
+            </div>
+            <Page :total="100" show-sizer />
+        </div>
+    </div>
 </template>
 
 <script>
@@ -233,35 +96,148 @@ export default {
                 ],
                 model1: '',
                 indeterminate: false,
-                checkAll: false           
-            }
-        },
-        methods: {
-            handleCheckAll () {
-                if (this.indeterminate) {
-                    this.checkAll = false;
-                } else {
-                    this.checkAll = !this.checkAll;
-                }
-                this.indeterminate = false;
-
-                if (this.checkAll) {
-                    this.checkAllGroup = ['1', '2', '3', '4', '5', '6', '7', '8'];
-                } else {
-                    this.checkAllGroup = [];
-                }
-            },
-            checkAllGroupChange (data) {
-                if (data.length === 8) {
-                    this.indeterminate = false;
-                    this.checkAll = true;
-                } else if (data.length > 0) {
-                    this.indeterminate = true;
-                    this.checkAll = false;
-                } else {
-                    this.indeterminate = false;
-                    this.checkAll = false;
-                }
+                checkAll: false,
+                cityList: [
+                    {
+                        value: '请选择',
+                        label: '请选择'
+                    },
+                    {
+                        value: '带退款',
+                        label: '带退款'
+                    },
+                    {
+                        value: '退款成功',
+                        label: '退款成功'
+                    },
+                    {
+                        value: '其它',
+                        label: '其它'
+                    }
+                ],
+                model1: '',
+                    columns4: [
+                    {
+                        type: 'selection',
+                        width: 50,
+                        align: 'center'
+                    },
+                    {
+                        title: '支付单号',
+                        key: '支付单号'
+                    },
+                    {
+                        title: '状态',
+                        key: '状态'
+                    },
+                    {
+                        title: '支付方式',
+                        key: '支付方式'
+                    },
+                    {
+                        title: '单据类型',
+                        key: '单据类型'
+                    },
+                    {
+                        title: '用户',
+                        key: '用户'
+                    },
+                    {
+                        title: '金额',
+                        key: '金额'
+                    },
+                    {
+                        title: '第三方支付',
+                        key: '第三方支付'
+                    },
+                    {
+                        title: '支付金额',
+                        key: '支付金额'
+                    },
+                    {
+                        title: '操作',
+                        key: '操作'
+                    },
+                ],
+                data1: [
+                    {
+                        支付单号: '25574102472',
+                        状态: '已支付',
+                        支付方式: '微信支付',
+                        单据类型: '订单',
+                        用户:'17777777',
+                        金额:'420.00',
+                        第三方支付:'',
+                        支付金额:'2019-04-01',
+                        操作:''
+                    },
+                    {
+                        支付单号: '25574102472',
+                        状态: '已支付',
+                        支付方式: '微信支付',
+                        单据类型: '订单',
+                        用户:'17777777',
+                        金额:'420.00',
+                        第三方支付:'',
+                        支付金额:'2019-04-01',
+                        操作:''
+                    },
+                    {
+                        支付单号: '25574102472',
+                        状态: '已支付',
+                        支付方式: '微信支付',
+                        单据类型: '订单',
+                        用户:'17777777',
+                        金额:'420.00',
+                        第三方支付:'',
+                        支付金额:'2019-04-01',
+                        操作:''
+                    },
+                    {
+                        支付单号: '25574102472',
+                        状态: '已支付',
+                        支付方式: '微信支付',
+                        单据类型: '订单',
+                        用户:'17777777',
+                        金额:'420.00',
+                        第三方支付:'',
+                        支付金额:'2019-04-01',
+                        操作:''
+                    },
+                    {
+                        支付单号: '25574102472',
+                        状态: '已支付',
+                        支付方式: '微信支付',
+                        单据类型: '订单',
+                        用户:'17777777',
+                        金额:'420.00',
+                        第三方支付:'',
+                        支付金额:'2019-04-01',
+                        操作:''
+                    },
+                    {
+                        支付单号: '25574102472',
+                        状态: '已支付',
+                        支付方式: '微信支付',
+                        单据类型: '订单',
+                        用户:'17777777',
+                        金额:'420.00',
+                        第三方支付:'',
+                        支付金额:'2019-04-01',
+                        操作:''
+                    },
+                    {
+                        支付单号: '25574102472',
+                        状态: '已支付',
+                        支付方式: '微信支付',
+                        单据类型: '订单',
+                        用户:'17777777',
+                        金额:'420.00',
+                        第三方支付:'',
+                        支付金额:'2019-04-01',
+                        操作:''
+                    },
+                ]             
             }
         }
 }

@@ -16,6 +16,7 @@ import top from "./right/sps-right-top";
 import zxt from "./right/sps-right-zxt";
 import logging from "./right/sps-logging";
 export default {
+  
 //import引入的组件需要注入到对象中才能使用
 components: {
   top,zxt,logging

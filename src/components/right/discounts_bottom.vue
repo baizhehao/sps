@@ -431,12 +431,12 @@ computed: {},
 watch: {},
 //方法集合
 methods: {
-            show (index) {
-                this.$Modal.info({
-                    title: 'User Info',
-                    content: `Name：${this.historyColumns[index].name}<br>Age：${this.historyColumns[index].age}<br>Address：${this.historyColumns[index].address}`
-                })
-            },
+            // show (index) {
+            //     this.$Modal.info({
+            //         title: 'User Info',
+            //         content: `Name：${this.historyColumns[index].name}<br>Age：${this.historyColumns[index].age}<br>Address：${this.historyColumns[index].address}`
+            //     })
+            // },
             remove (row) {
                 this.historyColumns.splice(row, 1);
             },

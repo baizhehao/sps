@@ -10,7 +10,7 @@
                </div>
                <div class="layui-inline">
                     <label class="layui-form-label">性别：</label>
-                    <Select class="label-ivu" v-model="model1" style="width:100px;">
+                    <Select class="label-ivu" v-model="model" style="width:100px;">
                         <Option v-for="item in cityList" :value="item.value" :key="item.value">{{ item.label }}</Option>
                     </Select>                   
                </div>   
@@ -223,7 +223,8 @@ export default {
                         label: '停用'
                     }
                 ],
-                model1: ''             
+                model1: '',
+                model: ''              
             }
         }
 }

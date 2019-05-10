@@ -11,7 +11,7 @@
                 <div class="layui-inline">
                         <label class="layui-form-label">单号：</label>
                         <div class="layui-input-inline inline-1">
-                            <input type="text" name="mobile" lay-verify="title" placeholder="" autocomplete="off" class="layui-input">
+                            <input type="text" name="mobile" lay-verify="title" placeholder="请输入单号" autocomplete="off" class="layui-input">
                         </div>
                 </div>
                 <div class="layui-inline">
@@ -147,7 +147,7 @@ export default {
                         单号:'001211',
                         用户:'13249073372',
                         创建时间:'2019-04-01',
-                        操作:''
+                        操作:``
                     },
                     {
                         退款单号: '65546873090',

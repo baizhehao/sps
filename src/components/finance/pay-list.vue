@@ -28,7 +28,7 @@
                </div>
                <div class="layui-inline">
                     <label class="layui-form-label">支付状态：</label>
-                    <Select class="label-ivu" v-model="model1" style="width:100px;">
+                    <Select class="label-ivu" v-model="model" style="width:100px;">
                         <Option v-for="item in cityList" :value="item.value" :key="item.value">{{ item.label }}</Option>
                     </Select>                   
                </div>
@@ -42,15 +42,17 @@
                     <Button type="error" class="layui-btn"> <Icon  type="ios-search-outline"  size="20"/>&nbsp;筛选</Button>
                 </div>
                <div class="layui-inline">
-                    <Upload action="//jsonplaceholder.typicode.com/posts/">
-                        <Button class="button1"><Icon type="ios-cloud-upload-outline" size="20" />&nbsp;导入</Button>
-                    </Upload>
-               </div>              
+                   <Button type="error" class="layui-btn"><Icon type="ios-cloud-download" size="20" />&nbsp;导出</Button>
+               </div>             
            </div>
         </div>
         <div style="background:white; height:300px; border: 1px solid #e6e6e6;">
             <div class="box-top" style="height:250px">
-                <Table border ref="selection" :columns="columns4" :data="data1"  width="1050"></Table>
+                <Table border ref="selection" :columns="columns4" :data="data1"  width="1050">\
+                <template slot-scope="{ row, index }" slot="action">
+                    <Button type="error" size="small" style="margin-right: 5px" @click="show(index)">明细</Button>
+                </template>
+                </Table>
             </div>
             <Page :total="100" show-sizer />
         </div>
@@ -95,6 +97,7 @@ export default {
 
                 ],
                 model1: '',
+                model: '',
                 indeterminate: false,
                 checkAll: false,
                 cityList: [
@@ -156,6 +159,9 @@ export default {
                     },
                     {
                         title: '操作',
+                        slot: 'action',
+                        width: 100,
+                        align: 'center',
                         key: '操作'
                     },
                 ],
@@ -165,10 +171,65 @@ export default {
                         状态: '已支付',
                         支付方式: '微信支付',
                         单据类型: '订单',
-                        用户:'17777777',
+                        用户:'17732177',
+                        金额:'4220.00',
+                        第三方支付:'',
+                        支付金额:'10.00',
+                        操作:''
+                    },
+                    {
+                        支付单号: '25574102472',
+                        状态: '已支付',
+                        支付方式: '微信支付',
+                        单据类型: '订单',
+                        用户:'156727',
                         金额:'420.00',
                         第三方支付:'',
-                        支付金额:'2019-04-01',
+                        支付金额:'10.00',
+                        操作:''
+                    },
+                    {
+                        支付单号: '25574102472',
+                        状态: '已支付',
+                        支付方式: '微信支付',
+                        单据类型: '订单',
+                        用户:'198334',
+                        金额:'420.00',
+                        第三方支付:'',
+                        支付金额:'10.00',
+                        操作:''
+                    },
+                    {
+                        支付单号: '25574102472',
+                        状态: '已支付',
+                        支付方式: '微信支付',
+                        单据类型: '订单',
+                        用户:'145723',
+                        金额:'420.00',
+                        第三方支付:'',
+                        支付金额:'410.00',
+                        操作:''
+                    },
+                    {
+                        支付单号: '25574102472',
+                        状态: '已支付',
+                        支付方式: '微信支付',
+                        单据类型: '订单',
+                        用户:'1684',
+                        金额:'420.00',
+                        第三方支付:'',
+                        支付金额:'121',
+                        操作:''
+                    },
+                    {
+                        支付单号: '25574102472',
+                        状态: '已支付',
+                        支付方式: '微信支付',
+                        单据类型: '订单',
+                        用户:'158957',
+                        金额:'420.00',
+                        第三方支付:'',
+                        支付金额:'224',
                         操作:''
                     },
                     {
@@ -179,65 +240,18 @@ export default {
                         用户:'17777777',
                         金额:'420.00',
                         第三方支付:'',
-                        支付金额:'2019-04-01',
-                        操作:''
-                    },
-                    {
-                        支付单号: '25574102472',
-                        状态: '已支付',
-                        支付方式: '微信支付',
-                        单据类型: '订单',
-                        用户:'17777777',
-                        金额:'420.00',
-                        第三方支付:'',
-                        支付金额:'2019-04-01',
-                        操作:''
-                    },
-                    {
-                        支付单号: '25574102472',
-                        状态: '已支付',
-                        支付方式: '微信支付',
-                        单据类型: '订单',
-                        用户:'17777777',
-                        金额:'420.00',
-                        第三方支付:'',
-                        支付金额:'2019-04-01',
-                        操作:''
-                    },
-                    {
-                        支付单号: '25574102472',
-                        状态: '已支付',
-                        支付方式: '微信支付',
-                        单据类型: '订单',
-                        用户:'17777777',
-                        金额:'420.00',
-                        第三方支付:'',
-                        支付金额:'2019-04-01',
-                        操作:''
-                    },
-                    {
-                        支付单号: '25574102472',
-                        状态: '已支付',
-                        支付方式: '微信支付',
-                        单据类型: '订单',
-                        用户:'17777777',
-                        金额:'420.00',
-                        第三方支付:'',
-                        支付金额:'2019-04-01',
-                        操作:''
-                    },
-                    {
-                        支付单号: '25574102472',
-                        状态: '已支付',
-                        支付方式: '微信支付',
-                        单据类型: '订单',
-                        用户:'17777777',
-                        金额:'420.00',
-                        第三方支付:'',
-                        支付金额:'2019-04-01',
+                        支付金额:'231',
                         操作:''
                     },
                 ]             
+            }
+        },
+        methods:{
+            show (index) {
+                this.$Modal.info({
+                    title: '支付单查看',
+                    content: `支付单号: ${this.data1[index].支付单号}<br>状态: ${this.data1[index].状态}<br>支付方式:   ${this.data1[index].支付方式}<br>单据类型:  ${this.data1[index].单据类型}<br>用户:  ${this.data1[index].用户}<br>金额:  ${this.data1[index].金额}<br>第三方支付:  ${this.data1[index].第三方支付}<br>支付金额:  ${this.data1[index].支付金额}`
+                })
             }
         }
 }

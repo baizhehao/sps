@@ -21,7 +21,7 @@
            </tr>
             <tr>
              <td>产品授权</td>
-             <td><i-button type="error">错误按钮</i-button></td>
+             <td><i-button type="error">下载更新</i-button></td>
            </tr>
 
 

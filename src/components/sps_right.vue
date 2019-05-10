@@ -56,6 +56,7 @@ activated() {}, //如果页面有keep-alive缓存功能，这个函数会触发
 <style  scoped>
 .top{
   margin-bottom: 15px;
+  padding-top: 25px;
 }
 
 </style>

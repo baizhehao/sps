@@ -1,7 +1,7 @@
 <template>
    <div class="box">
        <div class="box-top">
-           <div class="box-top-center">
+           <div class="box-top-center" id="buttom1_imp" >
                <div class="layui-inline">
                     <label class="layui-form-label">手机号：</label>
                     <div class="layui-input-inline inline-1">
@@ -231,7 +231,7 @@ export default {
 
 <style scoped>
 .box{
-    padding:15px;
+    padding:60px 15px;
 }
 .box .box-top{
     padding:10px 10px 0 10px;
@@ -381,6 +381,7 @@ input::placeholder{
     box-sizing: border-box;
         border:1px solid #e6e6e6;
 }
+
 .td-02{
     height: 40px;
     line-height: 28px;

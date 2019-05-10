@@ -18,7 +18,7 @@
               <Icon type="ios-search"></Icon>
               <span>会员管理</span>
             </template>
-            <router-link to='index/usList'><MenuItem name="1-1">用户列表</MenuItem></router-link>
+            <router-link to='/usList'><MenuItem name="1-1">用户列表</MenuItem></router-link>
           </Submenu>
           <Submenu name="3">
             <template  slot="title">
@@ -27,7 +27,7 @@
             </template>
             <MenuItem name="1-1">商品列表</MenuItem>
             <MenuItem name="1-2">商品分类</MenuItem>
-            <MenuItem name="1-3">品牌列表</MenuItem>
+            <router-link to='/brandList'><MenuItem name="1-3">品牌列表</MenuItem></router-link>
             <MenuItem name="1-3">商品类型</MenuItem>
             <MenuItem name="1-3">参数列表</MenuItem>
             <MenuItem name="1-3">商品评价</MenuItem>

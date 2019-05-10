@@ -185,10 +185,10 @@
                         <td class="td-02"></td>  
                     </tr> 
                 </table>
-                </div>
-                <Page :total="100" show-sizer />
             </div>
+            <Page :total="100" show-sizer />
         </div>
+    </div>
 </template>
 
 <script>

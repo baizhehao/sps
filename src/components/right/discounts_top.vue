@@ -17,11 +17,11 @@
             <span>请选择</span>
             <span style="float:right;color:#ccc">select</span>
         </i-option>
-        <i-option value="beijing" label="北京市">
+        <i-option value="beijing" label="关闭">
             <span>关闭</span>
             <span style="float:right;color:#ccc">close</span>
         </i-option>
-        <i-option value="shanghai" label="上海市">
+        <i-option value="shanghai" label="开启">
             <span>开启</span>
             <span style="float:right;color:#ccc">start</span>
         </i-option>

@@ -242,4 +242,5 @@
   .ivu-menu-dark.ivu-menu-vertical .ivu-menu-item:hover{
     background:#FF7159;
   }
+  ::-webkit-scrollbar {display:none}
 </style>

@@ -21,14 +21,123 @@
            </div>
        </div>
        <div class="box-top">
-           <i-table border :columns="columns5" :data="data5"></i-table>
-          <Page :total="dataCount" :page-size="pageSize" @on-change="changepage" @on-page-size-change="_nowPageSize"
-      show-total show-sizer show-elevator/>
+           <i-table border :columns="columns5" :data="data5" class="tab" height="200"></i-table>
+           <Page :total="dataCount" :page-size="pageSize" show-total class="paging" @on-change="changepage" show-sizer show-elevator></Page>
         </div>
     </div>
 </template>
 
 <script>
+let testData = {
+        "histories": [
+             {
+                        id:1,
+                        logo:"000",
+                        name: '王小明',
+                        age: 18,
+                        address: '北京市朝阳区芍药居',
+                        date: '2016-1-3'
+                    },{
+                        id:1,
+                        logo:"000",
+                        name: '王小明',
+                        age: 120,
+                        address: '北京市朝阳区芍药居',
+                        date: '2016-10-30'
+                    },{
+                        id:1,
+                        logo:"000",
+                        name: '王小明',
+                        age: 8,
+                        address: '北京市朝阳区芍药居',
+                        date: '2016-10-03'
+                    }, {
+                        id:1,
+                        logo:"000",
+                        name: '王小明',
+                        age: 18,
+                        address: '北京市朝阳区芍药居',
+                        date: '2016-1-3'
+                    },{
+                        id:1,
+                        logo:"000",
+                        name: '王小明',
+                        age: 120,
+                        address: '北京市朝阳区芍药居',
+                        date: '2016-10-30'
+                    },{
+                        id:1,
+                        logo:"000",
+                        name: '王小明',
+                        age: 8,
+                        address: '北京市朝阳区芍药居',
+                        date: '2016-10-03'
+                    }, {
+                        id:1,
+                        logo:"000",
+                        name: '王小明',
+                        age: 18,
+                        address: '北京市朝阳区芍药居',
+                        date: '2016-1-3'
+                    },{
+                        id:1,
+                        logo:"000",
+                        name: '王小明',
+                        age: 120,
+                        address: '北京市朝阳区芍药居',
+                        date: '2016-10-30'
+                    },{
+                        id:1,
+                        logo:"000",
+                        name: '王小明',
+                        age: 8,
+                        address: '北京市朝阳区芍药居',
+                        date: '2016-10-03'
+                    }, {
+                        id:1,
+                        logo:"000",
+                        name: '王小明',
+                        age: 18,
+                        address: '北京市朝阳区芍药居',
+                        date: '2016-1-3'
+                    },{
+                        id:1,
+                        logo:"000",
+                        name: '王小明',
+                        age: 120,
+                        address: '北京市朝阳区芍药居',
+                        date: '2016-10-30'
+                    },{
+                        id:1,
+                        logo:"000",
+                        name: '王小明',
+                        age: 8,
+                        address: '北京市朝阳区芍药居',
+                        date: '2016-10-03'
+                    }, {
+                        id:1,
+                        logo:"000",
+                        name: '王小明',
+                        age: 18,
+                        address: '北京市朝阳区芍药居',
+                        date: '2016-1-3'
+                    },{
+                        id:1,
+                        logo:"000",
+                        name: '王小明',
+                        age: 120,
+                        address: '北京市朝阳区芍药居',
+                        date: '2016-10-30'
+                    },{
+                        id:1,
+                        logo:"000",
+                        name: '王小明',
+                        age: 8,
+                        address: '北京市朝阳区芍药居',
+                        date: '2016-10-03'
+                    }
+        ]
+    }
   export default {
         data () {
             return {
@@ -122,118 +231,12 @@
                     
                     }
                 ],
-                data5: [
-                    {
-                        id:1,
-                        logo:"000",
-                        name: '王小明',
-                        age: 18,
-                        address: '北京市朝阳区芍药居',
-                        date: '2016-1-3'
-                    },{
-                        id:1,
-                        logo:"000",
-                        name: '王小明',
-                        age: 120,
-                        address: '北京市朝阳区芍药居',
-                        date: '2016-10-30'
-                    },{
-                        id:1,
-                        logo:"000",
-                        name: '王小明',
-                        age: 8,
-                        address: '北京市朝阳区芍药居',
-                        date: '2016-10-03'
-                    }, {
-                        id:1,
-                        logo:"000",
-                        name: '王小明',
-                        age: 18,
-                        address: '北京市朝阳区芍药居',
-                        date: '2016-1-3'
-                    },{
-                        id:1,
-                        logo:"000",
-                        name: '王小明',
-                        age: 120,
-                        address: '北京市朝阳区芍药居',
-                        date: '2016-10-30'
-                    },{
-                        id:1,
-                        logo:"000",
-                        name: '王小明',
-                        age: 8,
-                        address: '北京市朝阳区芍药居',
-                        date: '2016-10-03'
-                    }, {
-                        id:1,
-                        logo:"000",
-                        name: '王小明',
-                        age: 18,
-                        address: '北京市朝阳区芍药居',
-                        date: '2016-1-3'
-                    },{
-                        id:1,
-                        logo:"000",
-                        name: '王小明',
-                        age: 120,
-                        address: '北京市朝阳区芍药居',
-                        date: '2016-10-30'
-                    },{
-                        id:1,
-                        logo:"000",
-                        name: '王小明',
-                        age: 8,
-                        address: '北京市朝阳区芍药居',
-                        date: '2016-10-03'
-                    }, {
-                        id:1,
-                        logo:"000",
-                        name: '王小明',
-                        age: 18,
-                        address: '北京市朝阳区芍药居',
-                        date: '2016-1-3'
-                    },{
-                        id:1,
-                        logo:"000",
-                        name: '王小明',
-                        age: 120,
-                        address: '北京市朝阳区芍药居',
-                        date: '2016-10-30'
-                    },{
-                        id:1,
-                        logo:"000",
-                        name: '王小明',
-                        age: 8,
-                        address: '北京市朝阳区芍药居',
-                        date: '2016-10-03'
-                    }, {
-                        id:1,
-                        logo:"000",
-                        name: '王小明',
-                        age: 18,
-                        address: '北京市朝阳区芍药居',
-                        date: '2016-1-3'
-                    },{
-                        id:1,
-                        logo:"000",
-                        name: '王小明',
-                        age: 120,
-                        address: '北京市朝阳区芍药居',
-                        date: '2016-10-30'
-                    },{
-                        id:1,
-                        logo:"000",
-                        name: '王小明',
-                        age: 8,
-                        address: '北京市朝阳区芍药居',
-                        date: '2016-10-03'
-                    }
-                ],
                 //分页
+                ajaxHistoryData:[],
                 pageSize: 5,//每页显示多少条
                 dataCount: 0,//总条数
                 pageCurrent: 1,//当前页
+                data5: []
             }
         },
         methods: {
@@ -247,47 +250,29 @@
             },
             remove (index) {
                 this.data5.splice(index, 1);
+            },
+            // 获取历史记录信息
+            handleListApproveHistory(){
+                // 保存取到的所有数据
+                this.ajaxHistoryData = testData.histories
+                this.dataCount = testData.histories.length;
+                // 初始化显示，小于每页显示条数，全显，大于每页显示条数，取前每页条数显示
+                if(testData.histories.length < this.pageSize){
+                    this.data5 = this.ajaxHistoryData;
+                }else{
+                    this.data5 = this.ajaxHistoryData.slice(0,this.pageSize);
+                }
+                    
+               
+            },
+            changepage(index){
+                var _start = ( index - 1 ) * this.pageSize;
+                var _end = index * this.pageSize;
+                this.data5 = this.ajaxHistoryData.slice(_start,_end);
             }
-            // ,
-            // _getData() {
-                //所有数据
-                // this.data5 = [];
-                // console.log(this.data5)
-                // for (let i = 0; i < 100; i++) {
-                // let a = {
-                //     id: i,
-                //     idName: 'Mr.Li' + i,
-                //     name: '小李',
-                //     organization: '国务院',
-                //     people: '老李',
-                //     state: '活跃',
-                // };
-                // this.data5.push(a);
-                // }
-                //分页显示所有数据总数
-            //     this.dataCount = this.data5.length;
-            //     //循环展示页面刚加载时需要的数据条数
-            //     this.nowData = [];
-            //     for (let i = 0; i < this.pageSize; i++) {
-            //     this.nowData.push(this.data5[i]);
-            //     }   
-            // },
-            // //点击，切换页面
-            // changepage(index) {
-            //     //需要显示开始数据的index,(因为数据是从0开始的，页码是从1开始的，需要-1)
-            //     let _start = (index - 1) * this.pageSize;
-            //     //需要显示结束数据的index
-            //     let _end = index * this.pageSize;
-            //     //截取需要显示的数据
-            //     this.nowData = this.data5.slice(_start, _end);
-            //     //储存当前页
-            //     this.pageCurrent = index;
-            // },
-            // //每页显示的数据条数
-            // _nowPageSize(index) {
-            //     //实时获取当前需要显示的条数
-            //     this.pageSize = index;
-            // },
+        },
+        created(){
+             this.handleListApproveHistory();
         }
     }
 </script>

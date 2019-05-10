@@ -9,120 +9,140 @@
             </MenuItem >
         </Menu>
         <Menu active-name="1-2" id="test" theme="dark" width="auto" class="side_list" :class="menuitemClasses">
-          <MenuItem name="1">
-            <div  @click = "show">
+          <MenuItem name="1" :class="MenuObj">
+            <div @click = "show" >
               <router-link to="/sps_right">
-                <Icon type="ios-navigate"></Icon>
-                <span>首页</span>
+                <div class="iconfontBox">
+                  <b class="iconfont iconfontSize">&#xe60e;</b>
+                  <span>首页</span>
+                </div>
               </router-link>
             </div>
           </MenuItem >
           <Submenu name="2">
             <template  slot="title">
-              <Icon type="ios-search"></Icon>
-              <span>会员管理</span>
+              <div class="iconfontBox">
+                <b class="iconfont iconfontSize iconfontBtn">&#xe616;</b>
+                <span>会员管理</span>
+              </div>
             </template>
-            <MenuItem name="1-1" @click.native='routerUs("usList")'>用户列表</MenuItem>
+            <MenuItem name="1-0" @click.native='routerUs("usList")'>用户列表</MenuItem>
           </Submenu>
           <Submenu name="3">
             <template  slot="title">
-              <Icon type="ios-settings"></Icon>
-              <span>商品管理</span>
+              <div class="iconfontBox">
+                <b class="iconfont iconfontSize iconfontBtn">&#xe60a;</b>
+                <span>商品管理</span>
+              </div>
             </template>
             <MenuItem name="1-1" @click.native='routerUs("shopList")'>商品列表</MenuItem>
             <MenuItem name="1-2">商品分类</MenuItem>
             <MenuItem name="1-3">品牌列表</MenuItem>
-            <MenuItem name="1-3">商品类型</MenuItem>
-            <MenuItem name="1-3">参数列表</MenuItem>
-            <MenuItem name="1-3">商品评价</MenuItem>
+            <MenuItem name="1-4">商品类型</MenuItem>
+            <MenuItem name="1-5">参数列表</MenuItem>
+            <MenuItem name="1-6">商品评价</MenuItem>
           </Submenu>
           <Submenu name="4">
             <template  slot="title">
-              <Icon type="ios-settings"></Icon>
-              <span>订单管理</span>
+              <div class="iconfontBox">
+                <b class="iconfont iconfontSize iconfontBtn">&#xe607;</b>
+                <span>订单管理</span>
+              </div>
             </template>
-            <MenuItem name="1-1">订单列表</MenuItem>
-            <MenuItem name="1-2">提货单列表</MenuItem>
-            <MenuItem name="1-3">发货单列表</MenuItem>
-            <MenuItem name="1-3">售后单列表</MenuItem>
-            <MenuItem name="1-3">退货单列表</MenuItem>
+            <MenuItem name="1-7">订单列表</MenuItem>
+            <MenuItem name="1-8">提货单列表</MenuItem>
+            <MenuItem name="1-9">发货单列表</MenuItem>
+            <MenuItem name="1-10">售后单列表</MenuItem>
+            <MenuItem name="1-11">退货单列表</MenuItem>
           </Submenu>
           <Submenu name="5">
             <template  slot="title">
-              <Icon type="ios-settings"></Icon>
-              <span>运营管理</span>
+              <div class="iconfontBox">
+                <b class="iconfont iconfontSize iconfontBtn">&#xe601;</b>
+                <span>运营管理</span>
+              </div>
             </template>
-            <MenuItem name="1-1">广告位列表</MenuItem>
-            <MenuItem name="1-2">文章列表</MenuItem>
-            <MenuItem name="1-3">广告列表</MenuItem>
-            <MenuItem name="1-3">文章分类</MenuItem>
+            <MenuItem name="1-12">广告位列表</MenuItem>
+            <MenuItem name="1-13">文章列表</MenuItem>
+            <MenuItem name="1-14">广告列表</MenuItem>
+            <MenuItem name="1-15">文章分类</MenuItem>
           </Submenu>
           <Submenu name="6">
             <template  slot="title">
-              <Icon type="ios-settings"></Icon>
-              <span>促销管理</span>
+              <div class="iconfontBox">
+                <b class="iconfont iconfontSize iconfontBtn">&#xe686;</b>
+                <span>促销管理</span>
+              </div>
             </template>
-            <MenuItem name="1-1">促销列表</MenuItem>
-            <MenuItem name="1-2">团购秒杀列表</MenuItem>
+            <MenuItem name="1-16">促销列表</MenuItem>
+            <MenuItem name="1-17">团购秒杀列表</MenuItem>
            <router-link to="/youhui">
-            <MenuItem name="1-3">优惠卷列表</MenuItem>
+            <MenuItem name="1-18">优惠卷列表</MenuItem>
            </router-link>
           </Submenu>
           <Submenu name="7">
             <template  slot="title">
-              <Icon type="ios-settings"></Icon>
-              <span>财务管理</span>
+              <div class="iconfontBox">
+                <b class="iconfont iconfontSize iconfontBtn">&#xe60a;</b>
+                <span>财务管理</span>
+              </div>
             </template>
-            <MenuItem name="1-1">提现列表</MenuItem>
-            <MenuItem name="1-2">支付单列表</MenuItem>
-            <MenuItem name="1-3">退款单列表</MenuItem>
-            <MenuItem name="1-3">账户资金管理</MenuItem>
+            <MenuItem name="1-19">提现列表</MenuItem>
+            <MenuItem name="1-20">支付单列表</MenuItem>
+            <MenuItem name="1-21">退款单列表</MenuItem>
+            <MenuItem name="1-22">账户资金管理</MenuItem>
           </Submenu>
           <Submenu name="8">
             <template  slot="title">
-              <Icon type="ios-settings"></Icon>
-              <span>控制面板</span>
+              <div class="iconfontBox">
+                <b class="iconfont iconfontSize iconfontBtn">&#xe778;</b>
+                <span>控制面板</span>
+              </div>
             </template>
-            <MenuItem name="1-1">门店列表</MenuItem>
-            <MenuItem name="1-2">消息配置</MenuItem>
-            <MenuItem name="1-3">插件列表</MenuItem>
-            <MenuItem name="1-3">图片列表</MenuItem>
-            <MenuItem name="1-3">操作日志</MenuItem>
-            <MenuItem name="1-3">地区管理</MenuItem>
-            <MenuItem name="1-3">配送方式列表</MenuItem>
-            <MenuItem name="1-3">导入导出</MenuItem>
-            <MenuItem name="1-3">钩子列表</MenuItem>
-            <MenuItem name="1-3">店铺设置</MenuItem>
-            <MenuItem name="1-3">物流公司列表</MenuItem>
+            <MenuItem name="1-23">门店列表</MenuItem>
+            <MenuItem name="1-24">消息配置</MenuItem>
+            <MenuItem name="1-25">插件列表</MenuItem>
+            <MenuItem name="1-26">图片列表</MenuItem>
+            <MenuItem name="1-27">操作日志</MenuItem>
+            <MenuItem name="1-28">地区管理</MenuItem>
+            <MenuItem name="1-29">配送方式列表</MenuItem>
+            <MenuItem name="1-30">导入导出</MenuItem>
+            <MenuItem name="1-31">钩子列表</MenuItem>
+            <MenuItem name="1-32">店铺设置</MenuItem>
+            <MenuItem name="1-33">物流公司列表</MenuItem>
           </Submenu>
           <Submenu name="9">
             <template  slot="title">
-              <Icon type="ios-settings"></Icon>
-              <span>报表统计</span>
+              <div class="iconfontBox">
+                <b class="iconfont iconfontSize iconfontBtn">&#xe612;</b>
+                <span>报表统计</span>
+              </div>
             </template>
-            <MenuItem name="1-1">商品销量</MenuItem>
-              <router-link to='/finance'>
-            <MenuItem name="1-2">财务收款</MenuItem>
-              </router-link>
-            <MenuItem name="1-3">用户收藏统计</MenuItem>
-            <MenuItem name="1-3">订单销量</MenuItem>
+            <MenuItem name="1-34">商品销量</MenuItem>
+            <MenuItem name="1-35">财务收款</MenuItem>
+            <MenuItem name="1-36">用户收藏统计</MenuItem>
+            <MenuItem name="1-37">订单销量</MenuItem>
           </Submenu>
           <Submenu name="10">
             <template  slot="title">
-              <Icon type="ios-settings"></Icon>
-              <span>微信管理</span>
+              <div class="iconfontBox">
+                <b class="iconfont iconfontSize iconfontBtn">&#xe64c;</b>
+                <span>微信管理</span>
+              </div>
             </template>
-            <MenuItem name="1-1">模块列表</MenuItem>
-            <MenuItem name="1-2">微信消息管理</MenuItem>
-            <MenuItem name="1-3">公众号菜单</MenuItem>
+            <MenuItem name="1-38">模块列表</MenuItem>
+            <MenuItem name="1-39">微信消息管理</MenuItem>
+            <MenuItem name="1-40">公众号菜单</MenuItem>
           </Submenu>
           <Submenu name="11">
             <template  slot="title">
-              <Icon type="ios-settings"></Icon>
-              <span>智能列表</span>
+              <div class="iconfontBox">
+                <b class="iconfont iconfontSize iconfontBtn">&#xe607;</b>
+                <span>智能列表</span>
+              </div>
             </template>
-            <MenuItem name="1-1">表单列表</MenuItem>
-            <MenuItem name="1-2">提交列表</MenuItem>
+            <MenuItem name="1-41">表单列表</MenuItem>
+            <MenuItem name="1-42">提交列表</MenuItem>
           </Submenu>
         </Menu>
       </Sider>
@@ -243,6 +263,7 @@
               this.$router.push({path:'/index/'+name})
             },
             show(){
+              console.log(this.MenuObj.MenuTextClass)
               this.MenuObj.MenuTextClass = true;
             }
         },
@@ -450,6 +471,17 @@
     height:auto;
     text-align:center;
     line-height:40px;
+  }
+  .iconfontBox{
+    display:flex;
+  }
+  .iconfontSize{
+    margin:0 15px 0 0;
+    color:#fff;
+  }
+  .iconfontBtn{
+    margin:0 15px 0 5px;
+    font-weight:100;
   }
 
 </style>

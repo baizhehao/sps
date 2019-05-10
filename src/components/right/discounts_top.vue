@@ -1,57 +1,57 @@
 <!--  -->
 <template>
-<div class="box">
-   <div class="sel">
-    <div class="text">
-       <div class="t">
-          <span class="sp">优惠券名称:</span>
-       </div>
-      <i-input class="int" type="text" :autosize="true" placeholder="请输入优惠券名称"></i-input>
+  <div class="box">
+    <div class="sel">
+      <div class="text">
+        <div class="t">
+            <span class="sp">优惠券名称:</span>
+        </div>
+        <i-input class="int" type="text" :autosize="true" placeholder="请输入优惠券名称"></i-input>
+      </div>
+      <div class="text">
+        <div class="t">
+            <span class="sp">启用状态:</span>
+        </div>
+              <i-select :model.sync="model9"  class="start">
+                <i-option value="shanghai" label="请选择">
+              <span>请选择</span>
+              <span style="float:right;color:#ccc">select</span>
+          </i-option>
+          <i-option value="beijing" label="关闭">
+              <span>关闭</span>
+              <span style="float:right;color:#ccc">close</span>
+          </i-option>
+          <i-option value="shanghai" label="开启">
+              <span>开启</span>
+              <span style="float:right;color:#ccc">start</span>
+          </i-option>
+
+      </i-select>
+
+      </div>
+      <div class="text">
+        <div class="t">
+            <span class="sp">起止时间:</span>
+        </div>
+      <i-col class="time" span="12">
+              <Date-picker type="daterange" placement="bottom-end" placeholder="请输入起止时间" style="width: 200px"></Date-picker>
+          </i-col>
+      </div>
     </div>
-    <div class="text">
-       <div class="t">
-          <span class="sp">启用状态:</span>
-       </div>
-             <i-select :model.sync="model9"  class="start">
-               <i-option value="shanghai" label="请选择">
-            <span>请选择</span>
-            <span style="float:right;color:#ccc">select</span>
-        </i-option>
-        <i-option value="beijing" label="关闭">
-            <span>关闭</span>
-            <span style="float:right;color:#ccc">close</span>
-        </i-option>
-        <i-option value="shanghai" label="开启">
-            <span>开启</span>
-            <span style="float:right;color:#ccc">start</span>
-        </i-option>
-
-    </i-select>
-
-    </div>
-    <div class="text">
-       <div class="t">
-          <span class="sp">起止时间:</span>
-       </div>
-    <i-col class="time" span="12">
-            <Date-picker type="daterange" placement="bottom-end" placeholder="请输入起止时间" style="width: 200px"></Date-picker>
-        </i-col>
-    </div>
-   </div>
 
 
-    <div class="btn">
-       <i-button class="btn1" type="error">
-        <span class="iconfont">&#xe680;</span>
-         筛选
-        </i-button>
-        <i-button type="error">
-    <span class="iconfont"> &#xe639;</span>
-
-          添加
+      <div class="btn">
+        <i-button class="btn1" type="error">
+          <span class="iconfont">&#xe680;</span>
+          筛选
           </i-button>
-    </div>
-</div>
+          <i-button type="error">
+      <span class="iconfont"> &#xe639;</span>
+
+            添加
+            </i-button>
+      </div>
+  </div>  
 </template>
 
 <script>
@@ -100,7 +100,7 @@ activated() {}, //如果页面有keep-alive缓存功能，这个函数会触发
   height: 100px;
   background-color: white;
   border: 1px solid #e6e6e6;
-  margin: 15px;
+  margin: 15px 0;
 }
 .sel{
    width: 1000px;

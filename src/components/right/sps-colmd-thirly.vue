@@ -17,11 +17,11 @@
            </tr>
             <tr>
              <td>是否授权</td>
-             <td><a href="#"><span class="accredit">已授权</span></a></td>
+             <td><a href="#"><span class="accredit">已经授权</span></a></td>
            </tr>
             <tr>
              <td>产品授权</td>
-             <td><i-button type="error">下载已更新</i-button></td>
+             <td><i-button type="error">下载更新</i-button></td>
            </tr>
 
 

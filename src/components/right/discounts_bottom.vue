@@ -13,7 +13,7 @@ let testData = {
 
             {
                  "username": "001",
-                "shenpistatus": "满300减30",
+                "shenpistatus": "满100减30",
                 "shenpicomments": "2016-07-21 14:23",
                 "time": "2017-07-21 14:23"
             },

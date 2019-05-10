@@ -34,5 +34,22 @@ img{
 a{
     text-decoration: none;
 }
-
+#test .ivu-menu-vertical .ivu-menu-item, .ivu-menu-vertical .ivu-menu-submenu-title{
+  height: 52px;
+  padding: 14px 16px;
+  position: relative;
+  cursor: pointer;
+  z-index: 1;
+  transition: all .2s ease-in-out;
+}
+  #Menu .ivu-select-dropdown{
+    width:300px;
+    height:182px;
+    padding:0;
+    top: 39px !important;
+    left: -251.03px !important;
+  }
+  #hezi .ivu-drawer{
+    top:52px;
+  }
 </style>

@@ -208,7 +208,7 @@
               <Dropdown>
                 <Icon class='back' type="ios-arrow-down" size="20" href="javascript:void(0)"/>
                 <DropdownMenu slot="list" class="list">
-                  <DropdownItem>当前标签页</DropdownItem>
+                  <DropdownItem>关闭当前标签页</DropdownItem>
                   <DropdownItem>关闭其他标签页</DropdownItem>
                   <DropdownItem>关闭全部标签页</DropdownItem>
                 </DropdownMenu>

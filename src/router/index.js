@@ -10,6 +10,7 @@ import ShopList from '@/components/content/sps-shopManagement/sps-list/sps-shop-
 import sps_right from '@/components/sps_right'
 import youhui from '@/components/youhui'
 import finance from '@/components/finance'
+import contorl_panel from '@/components/right/contorl_panel'
 Vue.use(Router)
 
 
@@ -30,7 +31,8 @@ const router = new Router({
         {path:"shopList",component:ShopList},
         {path:"/sps_right",component:sps_right},
         {path:"/youhui",component:youhui},
-        {path:"/finance",component:finance}
+        {path:"/finance",component:finance},
+        {path:"/contorl_panel",component:contorl_panel}
       ]
     }
   ]

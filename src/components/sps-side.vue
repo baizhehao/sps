@@ -118,7 +118,7 @@
                 <span>报表统计</span>
               </div>
             </template>
-             <router-link to="/finance">
+             <router-link to="finance">
             <MenuItem name="1-34">商品销量</MenuItem>
              </router-link>
             <MenuItem name="1-35">财务收款</MenuItem>

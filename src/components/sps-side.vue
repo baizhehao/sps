@@ -11,7 +11,7 @@
         <Menu active-name="1-2" id="test" theme="dark" width="auto" class="side_list" :class="menuitemClasses">
           <MenuItem name="1" :class="MenuObj">
             <div @click = "show" >
-              <router-link to="/sps_right">
+              <router-link to="sps_right">
                 <div class="iconfontBox">
                   <b class="iconfont iconfontSize">&#xe60e;</b>
                   <span>首页</span>
@@ -76,7 +76,7 @@
             </template>
             <MenuItem name="1-16">促销列表</MenuItem>
             <MenuItem name="1-17">团购秒杀列表</MenuItem>
-           <router-link to="/youhui">
+           <router-link to="youhui">
             <MenuItem name="1-18">优惠卷列表</MenuItem>
            </router-link>
           </Submenu>
@@ -132,9 +132,9 @@
                 <span>微信管理</span>
               </div>
             </template>
-            <MenuItem name="1-38">模块列表</MenuItem>
-            <MenuItem name="1-39">微信消息管理</MenuItem>
-            <MenuItem name="1-40">公众号菜单</MenuItem>
+            <MenuItem name="1-38" to="model">模块列表</MenuItem>
+            <MenuItem name="1-39" to='message'>微信消息管理</MenuItem>
+            <MenuItem name="1-40" to='weixin'>公众号菜单</MenuItem>
           </Submenu>
           <Submenu name="11">
             <template  slot="title">

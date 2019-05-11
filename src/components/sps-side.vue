@@ -18,7 +18,7 @@
               <Icon type="ios-search"></Icon>
               <span>会员管理</span>
             </template>
-            <MenuItem name="1-1">用户列表</MenuItem>
+            <router-link to='index/usList'><MenuItem name="1-1">用户列表</MenuItem></router-link>
           </Submenu>
           <Submenu name="3">
             <template  slot="title">
@@ -104,9 +104,9 @@
               <Icon type="ios-settings"></Icon>
               <span>微信管理</span>
             </template>
-            <MenuItem name="1-1">模块列表</MenuItem>
-            <MenuItem name="1-2">微信消息管理</MenuItem>
-            <MenuItem name="1-3">公众号菜单</MenuItem>
+            <MenuItem name="1-1" to="model">模块列表</MenuItem>
+            <MenuItem name="1-2" to='message'>微信消息管理</MenuItem>
+            <MenuItem name="1-3" to='weixin'>公众号菜单</MenuItem>
           </Submenu>
           <Submenu name="11">
             <template  slot="title">
@@ -123,7 +123,7 @@
           <Icon @click.native="collapsedSider" :class="rotateIcon" :style="{margin: '0 20px'}" type="md-menu" size="24"></Icon>
         </Header>
         <Content>
-          
+          <router-view/>
         </Content>
       </Layout>
     </Layout>

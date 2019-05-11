@@ -4,9 +4,11 @@ import Router from 'vue-router'
 
 import index from '@/pages/index'
 import login from '@/pages/login'
-
 import UsList from '@/components/content/sps-usList/MmUsersList'
+import brandList from '@/components/content/sps-merchandiseList/brandList'
 import ShopList from '@/components/content/sps-shopManagement/sps-list/sps-shop-list'
+import imgList from '@/components/content/sps-controlPanel/sps-Image-list'
+import operationLog from '@/components/content/sps-controlPanel/sps-operation-log'
 import weixin from '@/components/content/weixin/weixin'
 import model from '@/components/content/weixin/model'
 import message from '@/components/content/weixin/message'
@@ -36,7 +38,10 @@ const router = new Router({
         {path:"finance",component:finance},
         {path:"model",component:model},
         {path:"message",component:message},
-        {path:"weixin",component:weixin}
+        {path:"weixin",component:weixin},
+        {path:"brandList",component:brandList},
+        {path:"imgList",component:imgList},
+        {path:"operationLog",component:operationLog}
       ]
     }
   ]

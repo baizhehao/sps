@@ -37,10 +37,10 @@
             </template>
             <MenuItem name="1-1" @click.native='routerUs("shopList")'>商品列表</MenuItem>
             <MenuItem name="1-2">商品分类</MenuItem>
-            <MenuItem name="1-3">品牌列表</MenuItem>
-            <MenuItem name="1-4">商品类型</MenuItem>
-            <MenuItem name="1-5">参数列表</MenuItem>
-            <MenuItem name="1-6">商品评价</MenuItem>
+            <MenuItem name="1-3" @click.native='routerUs("brandList")'>品牌列表</MenuItem>
+            <MenuItem name="1-3">商品类型</MenuItem>
+            <MenuItem name="1-3">参数列表</MenuItem>
+            <MenuItem name="1-3">商品评价</MenuItem>
           </Submenu>
           <Submenu name="4">
             <template  slot="title">
@@ -99,11 +99,11 @@
                 <span>控制面板</span>
               </div>
             </template>
-            <MenuItem name="1-23">门店列表</MenuItem>
-            <MenuItem name="1-24">消息配置</MenuItem>
+            <MenuItem name="1-23" @click.native='routerUs("imgList")'>图片列表</MenuItem>
+            <MenuItem name="1-24" @click.native='routerUs("operationLog")'>操作日志</MenuItem>
             <MenuItem name="1-25">插件列表</MenuItem>
-            <MenuItem name="1-26">图片列表</MenuItem>
-            <MenuItem name="1-27">操作日志</MenuItem>
+            <MenuItem name="1-26">门店列表</MenuItem>
+            <MenuItem name="1-27">消息配置</MenuItem>
             <MenuItem name="1-28">地区管理</MenuItem>
             <MenuItem name="1-29">配送方式列表</MenuItem>
             <MenuItem name="1-30">导入导出</MenuItem>

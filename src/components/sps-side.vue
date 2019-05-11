@@ -49,7 +49,9 @@
                 <span>订单管理</span>
               </div>
             </template>
-            <MenuItem name="1-7">订单列表</MenuItem>
+            <router-link to='/contorl_panel'>
+              <MenuItem name="1-7">订单列表</MenuItem>
+            </router-link>
             <MenuItem name="1-8">提货单列表</MenuItem>
             <MenuItem name="1-9">发货单列表</MenuItem>
             <MenuItem name="1-10">售后单列表</MenuItem>

@@ -22,6 +22,7 @@ import message from '@/components/content/weixin/message'
 import sps_right from '@/components/sps_right'
 import youhui from '@/components/youhui'
 import finance from '@/components/finance'
+import contorl_panel from '@/components/right/contorl_panel'
 Vue.use(Router)
 
 
@@ -66,7 +67,11 @@ const router = new Router({
         {path:"weixin",component:weixin},
         {path:"brandList",component:brandList},
         {path:"imgList",component:imgList},
-        {path:"operationLog",component:operationLog}
+        {path:"operationLog",component:operationLog},
+        {path:"/sps_right",component:sps_right},
+        {path:"/youhui",component:youhui},
+        {path:"/finance",component:finance},
+        {path:"/contorl_panel",component:contorl_panel}
       ]
     }
   ]

@@ -4,9 +4,9 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import store from './store/store'
-import iView from 'iview';
-import 'iview/dist/styles/iview.css';
-import $ from 'jquery'
+import iView from 'iview'
+import 'iview/dist/styles/iview.css'
+// import $ from 'jquery'
 
 Vue.use(iView)
 

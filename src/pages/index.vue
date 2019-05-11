@@ -7,7 +7,7 @@
   export default {
     name: 'index',
     components:{
-      spsSide,
+      spsSide
     }
   }
 </script>

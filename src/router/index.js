@@ -4,12 +4,20 @@ import Router from 'vue-router'
 
 import index from '@/pages/index'
 import login from '@/pages/login'
-import UsList from '@/components/content/sps-usList/MmUsersList'
+import usList from '@/components/content/sps-usList/MmUsersList'
 import withdrawlist from '@/components/finance/withdraw-list'
 import paylist from '@/components/finance/pay-list'
 import refundlist from '@/components/finance/refund-list'
 import AccountManage from '@/components/finance/account-manage'
 
+import ShopList from '@/components/content/sps-shopManagement/sps-list/sps-shop-list'
+import weixin from '@/components/content/weixin/weixin'
+import model from '@/components/content/weixin/model'
+import message from '@/components/content/weixin/message'
+
+import sps_right from '@/components/sps_right'
+import youhui from '@/components/youhui'
+import finance from '@/components/finance'
 Vue.use(Router)
 
 
@@ -27,7 +35,7 @@ const router = new Router({
       children:[
         {
           path:"/usList",
-          component:UsList
+          component:usList
         },
         {
           path:"/withdraw-list",
@@ -44,22 +52,18 @@ const router = new Router({
         {
           path:"/account-manage",
           component:AccountManage
-        }
+        },
+        {path:"shopList",component:ShopList},
+        {path:"sps_right",component:sps_right},
+        {path:"youhui",component:youhui},
+        {path:"finance",component:finance},
+        {path:"model",component:model},
+        {path:"message",component:message},
+        {path:"weixin",component:weixin}
       ]
     }
   ]
-  
+
 })
-
-
-
-
-
-
-
-
-
-
-
 
 export default router

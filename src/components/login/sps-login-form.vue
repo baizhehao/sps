@@ -11,7 +11,7 @@
                 <Icon type="ios-lock-outline" slot="prepend"></Icon>
             </Input>
         </FormItem>
-        <router-link to="/index">
+        <router-link to="/index/sps_right">
             <FormItem class="log_user">
                 <Button type="primary">登录</Button>
             </FormItem>

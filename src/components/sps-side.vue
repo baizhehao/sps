@@ -26,7 +26,7 @@
                 <span>会员管理</span>
               </div>
             </template>
-            <MenuItem name="1-0" @click.native='routerUs("usList")'>用户列表</MenuItem>
+            <router-link to='/usList'><MenuItem name="1-1">用户列表</MenuItem></router-link>
           </Submenu>
           <Submenu name="3">
             <template  slot="title">
@@ -87,10 +87,10 @@
                 <span>财务管理</span>
               </div>
             </template>
-            <MenuItem name="1-19">提现列表</MenuItem>
-            <MenuItem name="1-20">支付单列表</MenuItem>
-            <MenuItem name="1-21">退款单列表</MenuItem>
-            <MenuItem name="1-22">账户资金管理</MenuItem>
+            <router-link to="/withdraw-list"><MenuItem name="1-1">提现列表</MenuItem></router-link>
+            <router-link to="/pay-list"><MenuItem name="1-2">支付单列表</MenuItem></router-link>
+            <router-link to="/refund-list"><MenuItem name="1-3">退款单列表</MenuItem></router-link>
+            <router-link to="/account-manage"><MenuItem name="1-3">账户资金管理</MenuItem></router-link>
           </Submenu>
           <Submenu name="8">
             <template  slot="title">
@@ -404,86 +404,5 @@
   .color_box_blue{
     background:lightskyblue;
   }
-  .color_box_blue{
-    background:lightpink;
-  }
-  .Header_top{
-    width:100%;
-    height:50px;
-    line-height: 50px;
-    display:flex;
-    justify-content:space-between;
-    border-bottom:1px solid #fff;
-  }
-  .Header_bottom{
-    height:40px;
-    background:#fff;
-    display:flex;
-    justify-content:space-between;
-    border-bottom:1px solid #ccc;
-    box-sizing:border-box;
-  }
-  .Header_bottom_One{
-    display:flex;
-  }
-  .iconfont_two{
-    display:block;
-    width:40px;
-    height:100%;
-    border:1px solid #f6f6f6;
-    box-sizing:border-box;
-    margin:0;
-    font-size:20px;
-    text-align:center;
-    line-height:40px;
-  }
-  .table_page{
-    display:flex;
-    flex:1;
-  }
-  .table_son{
-    display:block;
-    height:auto;
-    background:#f6f6f6;
-    border-top:2px solid #000;
-    box-sizing:border-box;
-    font-size:14px;
-    line-height:40px;
-    padding:0 40px 0 15px;
-    border-right: 1px solid #f6f6f6;
-    position:relative;
-  }
-  .call{
-    position:absolute;
-    right: 8px;
-    top: 30%;
-    font-size:16px;
-    border-radius:50%;
-  }
-  .call:hover{
-    background:#FF5722;
-    color:#fff;
-  }
-  .Header_bottom_Two{
-    display:flex;
-  }
-  .back{
-    display:block;
-    width:40px;
-    height:auto;
-    text-align:center;
-    line-height:40px;
-  }
-  .iconfontBox{
-    display:flex;
-  }
-  .iconfontSize{
-    margin:0 15px 0 0;
-    color:#fff;
-  }
-  .iconfontBtn{
-    margin:0 15px 0 5px;
-    font-weight:100;
-  }
-
+  ::-webkit-scrollbar {display:none}
 </style>

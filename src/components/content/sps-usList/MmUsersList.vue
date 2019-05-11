@@ -10,7 +10,7 @@
                </div>
                <div class="layui-inline">
                     <label class="layui-form-label">性别：</label>
-                    <Select class="label-ivu" v-model="model1" style="width:100px;">
+                    <Select class="label-ivu" v-model="model" style="width:100px;">
                         <Option v-for="item in cityList" :value="item.value" :key="item.value">{{ item.label }}</Option>
                     </Select>                   
                </div>   
@@ -223,7 +223,8 @@ export default {
                         label: '停用'
                     }
                 ],
-                model1: ''             
+                model1: '',
+                model: ''              
             }
         }
 }
@@ -319,50 +320,6 @@ input::placeholder{
     border-style: solid;
     border-color: #e6e6e6;
 }
-/* .layui-table-header{
-    background-color: #f2f2f2;
-}
-.layui-table {
-    position: relative;
-    width: auto;
-    margin: 0;
-}
-.layui-table th {
-    padding: 5px 0;
-    border-top: none;
-    border-left: none;
-    position: relative;
-    padding: 9px 15px;
-    min-height: 20px;
-    line-height: 20px;
-    font-size: 14px;
-}
-.layui-table th{
-    border-width: 1px;
-    border-style: solid;
-    border-color: #e6e6e6;
-    text-align: left;
-    font-weight: 400;
-}
-.laytable-cell-1-0-0 {
-    width: 40px;
-}
-.laytable-cell-numbers{
-    padding: 0;
-    text-align: center;
-}
-.layui-table-cell {
-    height: 28px;
-    line-height: 28px;
-    padding: 0 15px;
-    position: relative;
-    box-sizing: border-box;
-}
-.layui-table-cell, .layui-table-tool-panel li {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-} */
 .tablebox{
     border:1px solid #e6e6e6;
 }

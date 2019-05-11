@@ -33,7 +33,11 @@
         </div>
         <div style="background:white; height:300px; border: 1px solid #e6e6e6;">
             <div class="box-top" style="height:250px;">
-                <Table border ref="selection" :columns="columns4" :data="data1" width="1050"></Table>    
+                <Table border ref="selection" :columns="columns4" :data="data1" width="1050">
+                    <template slot-scope="{ row, index }" slot="action">
+                        <Button type="error" size="small" style="margin-right: 5px" @click="show(index)">明细</Button>
+                    </template>                    
+                </Table>    
             </div>
             <Page :total="100" show-sizer />
         </div>
@@ -134,8 +138,11 @@ export default {
                     },
                     {
                         title: '操作',
+                        slot: 'action',
+                        width: 100,
+                        align: 'center',
                         key: '操作'
-                    },
+                    }
                 ],
                 data1: [
                     {
@@ -217,7 +224,15 @@ export default {
                     }
                 ]             
             }
-        }
+        },
+        methods:{
+            show (index) {
+                this.$Modal.info({
+                    title: '退款单查看',
+                    content: `退款单号: ${this.data1[index].退款单号}<br>退款金额: ${this.data1[index].退款金额}<br>退款方式:   ${this.data1[index].退款方式}<br>状态:  ${this.data1[index].状态}<br>类型:  ${this.data1[index].类型}<br>单号:  ${this.data1[index].单号}<br>用户:  ${this.data1[index].用户}<br>创建时间:  ${this.data1[index].创建时间}`
+                })
+            }
+        }        
 }
 </script>
 

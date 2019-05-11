@@ -11,7 +11,7 @@
         <Menu active-name="1-2" id="test" theme="dark" width="auto" class="side_list" :class="menuitemClasses">
           <MenuItem name="1" :class="MenuObj">
             <div @click = "show" >
-              <router-link to="/sps_right">
+              <router-link to="sps_right">
                 <div class="iconfontBox">
                   <b class="iconfont iconfontSize">&#xe60e;</b>
                   <span>首页</span>
@@ -26,7 +26,7 @@
                 <span>会员管理</span>
               </div>
             </template>
-            <MenuItem name="1-0" @click.native='routerUs("usList")'>用户列表</MenuItem>
+            <MenuItem name="1-0" @click.native='routerUs("usList","用户列表")'>用户列表</MenuItem>
           </Submenu>
           <Submenu name="3">
             <template  slot="title">
@@ -35,7 +35,7 @@
                 <span>商品管理</span>
               </div>
             </template>
-            <MenuItem name="1-1" @click.native='routerUs("shopList")'>商品列表</MenuItem>
+            <MenuItem name="1-1" @click.native='routerUs("shopList","商品列表")'>商品列表</MenuItem>
             <MenuItem name="1-2">商品分类</MenuItem>
             <MenuItem name="1-3">品牌列表</MenuItem>
             <MenuItem name="1-4">商品类型</MenuItem>
@@ -76,7 +76,7 @@
             </template>
             <MenuItem name="1-16">促销列表</MenuItem>
             <MenuItem name="1-17">团购秒杀列表</MenuItem>
-           <router-link to="/youhui">
+           <router-link to="youhui">
             <MenuItem name="1-18">优惠卷列表</MenuItem>
            </router-link>
           </Submenu>
@@ -118,7 +118,7 @@
                 <span>报表统计</span>
               </div>
             </template>
-            <router-link to="/finance">
+            <router-link to="finance">
               <MenuItem name="1-34">商品销量</MenuItem>
             </router-link>
             <MenuItem name="1-35">财务收款</MenuItem>
@@ -177,7 +177,7 @@
               <span class="iconfont">&#xe86a;</span>
               <Dropdown>
                 <span class="demo" href="javascript:void(0)">
-                  demo
+                  {{this.useName}}
                   <Icon type="md-arrow-dropdown" size="26"/>
                 </span>
                 <DropdownMenu slot="list">
@@ -194,10 +194,6 @@
               <span class="iconfont iconfont_two">&#xe60e;</span>
             </div>
             <div class="table_page">
-              <span class="table_son">
-                用户列表
-              <Icon class='call' type="ios-close" />
-              </span>
               <span class="table_son">
                 用户列表
               <Icon class='call' type="ios-close" />
@@ -225,6 +221,8 @@
 </template>
 
 <script>
+let rouSet=new Set()
+
   import '../assets/css/iconfont.css'
     export default {
         name: "sps-side",
@@ -234,10 +232,14 @@
               MenuObj:{
                 MenuTextClass:false,
               },
-              value1: false
+              value1: false,
+              useName:JSON.parse(sessionStorage.getItem("data")).useName
             }
         },
         computed: {
+            winTagArr () {
+              return sessionStorage.getItem('rouPath').split(",")
+            },
             rotateIcon () {
             return [
                 'menu-icon',
@@ -261,8 +263,16 @@
                   }
               })
             },
-            routerUs(name){
-              this.$router.push({path:'/index/'+name})
+            routerUs(path,name){
+              this.$router.push({path:'/index/'+path});
+              let tagObj = {
+                          path:'/index/'+path,
+                          name:name
+                        };
+              rouSet.add(tagObj);
+              console.log(rouSet)
+              // let rouArr = Array.from(rouSet);
+              // console.log(rouArr)
             },
             show(){
               console.log(this.MenuObj.MenuTextClass)

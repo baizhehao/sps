@@ -26,7 +26,7 @@
                 <span>会员管理</span>
               </div>
             </template>
-            <MenuItem name="1-0" @click.native='routerUs("usList","用户列表")'>用户列表</MenuItem>
+            <MenuItem name="1-0" @click.native.self='routerUs("usList","用户列表")'>用户列表</MenuItem>
           </Submenu>
           <Submenu name="3">
             <template  slot="title">
@@ -35,7 +35,7 @@
                 <span>商品管理</span>
               </div>
             </template>
-            <MenuItem name="1-1" @click.native='routerUs("shopList","商品列表")'>商品列表</MenuItem>
+            <MenuItem name="1-1" @click.self.native='routerUs("shopList","商品列表")'>商品列表</MenuItem>
             <MenuItem name="1-2">商品分类</MenuItem>
             <MenuItem name="1-3">品牌列表</MenuItem>
             <MenuItem name="1-4">商品类型</MenuItem>
@@ -177,7 +177,7 @@
               <span class="iconfont">&#xe86a;</span>
               <Dropdown>
                 <span class="demo" href="javascript:void(0)">
-                  <!-- {{this.useName}} -->
+                  {{this.useName}}
                   <Icon type="md-arrow-dropdown" size="26"/>
                 </span>
                 <DropdownMenu slot="list">
@@ -194,7 +194,7 @@
               <span class="iconfont iconfont_two">&#xe60e;</span>
             </div>
             <div class="table_page" >
-              <span class="table_son" v-if="tagArrData" v-for='(itme,key) in tagArrData'>
+              <span class="table_son" v-if="tagArrData" v-for='(itme,key) in tagArrData' @click.self=routerUs(itme.path) >
                 {{itme.name}}
               <Icon class='call' type="ios-close"  @click='deleteTag(key)' />
               </span>
@@ -233,8 +233,8 @@ let rouArr=[]
                 MenuTextClass:false,
               },
               value1: false,
-              tagArrData:[]
-              // useName:JSON.parse(sessionStorage.getItem("data")).useName
+              tagArrData:[],
+              useName:JSON.parse(sessionStorage.getItem("data")).useName
             }
         },
         computed: {
@@ -262,7 +262,15 @@ let rouArr=[]
               })
             },
             routerUs(path,name){
-              this.$router.push({path:'/index/'+path});
+              console.log(!name)
+              if(name){
+                this.addTag(path,name)
+                this.$router.push({path:'/index/'+path});
+              }else{
+                this.$router.push({path:path});
+              }
+            },
+            addTag(path,name){
               let obj = {path:'/index/'+path,name:name}
               let istrue = true;
               if(rouArr.length==0){
@@ -281,9 +289,8 @@ let rouArr=[]
               }
               sessionStorage.setItem('rouArr', JSON.stringify(rouArr))
             },
-            deleteTag(key){
-              console.log(this.tagArrDat)
-              let rouArr = this.tagArrDat.splice(key,1);
+            deleteTag(index){ 
+              rouArr.splice(index,1);
               sessionStorage.setItem('rouArr', JSON.stringify(rouArr))
             },
             show(){

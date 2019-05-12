@@ -11,11 +11,9 @@
                 <Icon type="ios-lock-outline" slot="prepend"></Icon>
             </Input>
         </FormItem>
-        <router-link to="/index/sps_right">
-            <FormItem class="log_user">
-                <Button type="primary">登录</Button>
-            </FormItem>
-        </router-link>
+        <FormItem class="log_user">
+            <Button @click="handleSubmit()" type="primary">登录</Button>
+        </FormItem>
     </Form>
 </div>
 </template>
@@ -33,20 +31,18 @@
                     ],
                     password: [
                         { required: true, message: '必填项不能为空', trigger: 'blur' },
-                        { type: 'string', min: 6, message: 'The password length cannot be less than 6 bits', trigger: 'blur' }
+                        { type: 'string', min: 3, message: '密码长度不能小于3位', trigger: 'blur' }
                     ]
                 }
             }
         },
         methods: {
-            handleSubmit(name) {
-                this.$refs[name].validate((valid) => {
-                    if (valid) {
-                        this.$Message.success('Success!');
-                    } else {
-                        this.$Message.error('Fail!');
-                    }
-                })
+            handleSubmit() {
+                let usObj={
+                    useName:this.formInline.user,
+                    usePass:this.formInline.password
+                }
+               this.$emit("childFunc",usObj)
             }
         }
     }
@@ -56,15 +52,7 @@
 .log-forms{
     padding: 20px;
 }
-/* .log_user {
-    margin-bottom: 15px;
-    clear: both;
-}
-.log_user input{
-    outline: none;
-} */
 .log_user button{
-    /* outline: none; */
     width:100%;
 }
 </style>

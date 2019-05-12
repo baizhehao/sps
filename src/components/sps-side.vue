@@ -1,7 +1,7 @@
 <template>
   <div class="layout layout_height">
     <Layout>
-      <Sider ref="side1" class="side_box"  hide-trigger collapsible :width="220" :collapsed-width="60" v-model="isCollapsed">
+      <Sider ref="side1" class='side_box'  hide-trigger collapsible :width='220' :collapsed-width="60" v-model='isCollapsed'>
         <Menu active-name="1-2" class="side_tit" theme="dark" width="auto" :class="menuitemClasses">
             <MenuItem name="1">
                 <!-- <Icon type="ios-navigate"></Icon> -->
@@ -11,7 +11,7 @@
         <Menu active-name="1-2" id="test" theme="dark" width="auto" class="side_list" :class="menuitemClasses">
           <MenuItem name="1" :class="MenuObj">
             <div @click = "show" >
-              <router-link to="sps_right">
+              <router-link to="spsRight">
                 <div class="iconfontBox">
                   <b class="iconfont iconfontSize">&#xe60e;</b>
                   <span>首页</span>
@@ -26,7 +26,7 @@
                 <span>会员管理</span>
               </div>
             </template>
-            <router-link to='/usList'><MenuItem name="1-1">用户列表</MenuItem></router-link>
+            <MenuItem name="1-0" @click.native.self='routerUs("usList","用户列表")'>用户列表</MenuItem>
           </Submenu>
           <Submenu name="3">
             <template  slot="title">
@@ -35,12 +35,12 @@
                 <span>商品管理</span>
               </div>
             </template>
-            <MenuItem name="1-1" @click.native='routerUs("shopList")'>商品列表</MenuItem>
+            <MenuItem name="1-1" @click.self.native='routerUs("shopList","商品列表")'>商品列表</MenuItem>
             <MenuItem name="1-2">商品分类</MenuItem>
-            <MenuItem name="1-3" @click.native='routerUs("brandList")'>品牌列表</MenuItem>
-            <MenuItem name="1-3">商品类型</MenuItem>
-            <MenuItem name="1-3">参数列表</MenuItem>
-            <MenuItem name="1-3">商品评价</MenuItem>
+            <MenuItem name="1-3" @click.self.native='routerUs("shopList","品牌列表")'>品牌列表</MenuItem>
+            <MenuItem name="1-4">商品类型</MenuItem>
+            <MenuItem name="1-5">参数列表</MenuItem>
+            <MenuItem name="1-6">商品评价</MenuItem>
           </Submenu>
           <Submenu name="4">
             <template  slot="title">
@@ -49,9 +49,7 @@
                 <span>订单管理</span>
               </div>
             </template>
-            <router-link to='/contorl_panel'>
-              <MenuItem name="1-7">订单列表</MenuItem>
-            </router-link>
+              <MenuItem name="1-7" @click.self.native='routerUs("contorlPanel","订单列表")'>订单列表</MenuItem>
             <MenuItem name="1-8">提货单列表</MenuItem>
             <MenuItem name="1-9">发货单列表</MenuItem>
             <MenuItem name="1-10">售后单列表</MenuItem>
@@ -78,9 +76,7 @@
             </template>
             <MenuItem name="1-16">促销列表</MenuItem>
             <MenuItem name="1-17">团购秒杀列表</MenuItem>
-           <router-link to="youhui">
-            <MenuItem name="1-18">优惠卷列表</MenuItem>
-           </router-link>
+            <MenuItem name="1-18" @click.self.native='routerUs("youHui","优惠券列表")'>优惠卷列表</MenuItem>
           </Submenu>
           <Submenu name="7">
             <template  slot="title">
@@ -89,10 +85,10 @@
                 <span>财务管理</span>
               </div>
             </template>
-            <router-link to="/withdraw-list"><MenuItem name="1-1">提现列表</MenuItem></router-link>
-            <router-link to="/pay-list"><MenuItem name="1-2">支付单列表</MenuItem></router-link>
-            <router-link to="/refund-list"><MenuItem name="1-3">退款单列表</MenuItem></router-link>
-            <router-link to="/account-manage"><MenuItem name="1-3">账户资金管理</MenuItem></router-link>
+            <MenuItem name="1-1" @click.self.native='routerUs("withdrawList","提现列表")'>提现列表</MenuItem>
+            <MenuItem name="1-2" @click.self.native='routerUs("payList","支付单列表")'>支付单列表</MenuItem>
+            <MenuItem name="1-3" @click.self.native='routerUs("refundList","退款单列表")'>退款单列表</MenuItem>
+            <MenuItem name="1-4" @click.self.native='routerUs("accountLanage","账户资金管理")'>账户资金管理</MenuItem>
           </Submenu>
           <Submenu name="8">
             <template  slot="title">
@@ -101,8 +97,8 @@
                 <span>控制面板</span>
               </div>
             </template>
-            <MenuItem name="1-23" @click.native='routerUs("imgList")'>图片列表</MenuItem>
-            <MenuItem name="1-24" @click.native='routerUs("operationLog")'>操作日志</MenuItem>
+            <MenuItem name="1-23" @click.native='routerUs("imgList","图片列表")'>图片列表</MenuItem>
+            <MenuItem name="1-24" @click.native='routerUs("operationLog","操作日志")'>操作日志</MenuItem>
             <MenuItem name="1-25">插件列表</MenuItem>
             <MenuItem name="1-26">门店列表</MenuItem>
             <MenuItem name="1-27">消息配置</MenuItem>
@@ -120,9 +116,7 @@
                 <span>报表统计</span>
               </div>
             </template>
-            <router-link to="/finance">
-              <MenuItem name="1-34">商品销量</MenuItem>
-            </router-link>
+            <MenuItem name="1-34" @click.self.native='routerUs("finance","商品销量")'>商品销量</MenuItem>
             <MenuItem name="1-35">财务收款</MenuItem>
             <MenuItem name="1-36">用户收藏统计</MenuItem>
             <MenuItem name="1-37">订单销量</MenuItem>
@@ -134,9 +128,9 @@
                 <span>微信管理</span>
               </div>
             </template>
-            <MenuItem name="1-38" to="model">模块列表</MenuItem>
-            <MenuItem name="1-39" to='message'>微信消息管理</MenuItem>
-            <MenuItem name="1-40" to='weixin'>公众号菜单</MenuItem>
+            <MenuItem name="1-38" @click.self.native='routerUs("model","模块列表")'>模块列表</MenuItem>
+            <MenuItem name="1-39" @click.self.native='routerUs("message","微信消息管理")'>微信消息管理</MenuItem>
+            <MenuItem name="1-40" @click.self.native='routerUs("weiXin","公众号菜单")'>公众号菜单</MenuItem>
           </Submenu>
           <Submenu name="11">
             <template  slot="title">
@@ -179,7 +173,7 @@
               <span class="iconfont">&#xe86a;</span>
               <Dropdown>
                 <span class="demo" href="javascript:void(0)">
-                  demo
+                  {{this.useName}}
                   <Icon type="md-arrow-dropdown" size="26"/>
                 </span>
                 <DropdownMenu slot="list">
@@ -195,14 +189,10 @@
               <span class="iconfont iconfont_two">&#xe600;</span>
               <span class="iconfont iconfont_two">&#xe60e;</span>
             </div>
-            <div class="table_page">
-              <span class="table_son">
-                用户列表
-              <Icon class='call' type="ios-close" />
-              </span>
-              <span class="table_son">
-                用户列表
-              <Icon class='call' type="ios-close" />
+            <div class="table_page" >
+              <span class="table_son" v-if="tagArrData" v-for='(itme,key) in tagArrData' @click.self=routerUs(itme.path) >
+                {{itme.name}}
+              <Icon class='call' type="ios-close"  @click='deleteTag(key)' />
               </span>
             </div>
             <div class="Header_bottom_Two">
@@ -227,6 +217,8 @@
 </template>
 
 <script>
+let rouArr=[]
+
   import '../assets/css/iconfont.css'
     export default {
         name: "sps-side",
@@ -236,7 +228,9 @@
               MenuObj:{
                 MenuTextClass:false,
               },
-              value1: false
+              value1: false,
+              tagArrData:[],
+              useName:JSON.parse(sessionStorage.getItem("data")).useName
             }
         },
         computed: {
@@ -263,18 +257,50 @@
                   }
               })
             },
-            routerUs(name){
-              this.$router.push({path:'/index/'+name})
+            routerUs(path,name){
+              console.log(!name)
+              if(name){
+                this.addTag(path,name)
+                this.$router.push({path:'/index/'+path});
+              }else{
+                this.$router.push({path:path});
+              }
+            },
+            addTag(path,name){
+              let obj = {path:'/index/'+path,name:name}
+              let istrue = true;
+              if(rouArr.length==0){
+                istrue = true
+              }else{
+                for(let i=0;i<rouArr.length;i++){
+                  if(rouArr[i].name==name){
+                    istrue=false;
+                    break
+                  }
+                }
+              }
+              if(istrue){
+                  rouArr.push(obj)
+                  this.tagArrData = rouArr
+              }
+              sessionStorage.setItem('rouArr', JSON.stringify(rouArr))
+            },
+            deleteTag(index){ 
+              rouArr.splice(index,1);
+              sessionStorage.setItem('rouArr', JSON.stringify(rouArr))
             },
             show(){
               console.log(this.MenuObj.MenuTextClass)
               this.MenuObj.MenuTextClass = true;
             }
         },
+        beforeMount(){
+            this.tagArrData = JSON.parse(sessionStorage.getItem('rouArr'))
+        },
         mounted:function(){
             document.querySelector("."+this.$refs.side1.childClasses).style.cssText = ` display:flex;flex-direction: column;`;
             document.getElementsByClassName('pallet')[0].onclick = function(){
-              document.getElementsByClassName('ivu-drawer-header-inner')[0].innerHTML = '配色方案';
+            document.getElementsByClassName('ivu-drawer-header-inner')[0].innerHTML = '配色方案';
             }
         }
     }
@@ -368,9 +394,6 @@ padding:0 10px;
 display:flex;
 justify-content:space-around;
 align-items:center;
-}
-.Header_right{
-
 }
 .iconfont{
 margin:0 20px;

@@ -1,7 +1,7 @@
 <template>
   <div class="layout layout_height">
     <Layout>
-      <Sider ref="side1" class="side_box"  hide-trigger collapsible :width="220" :collapsed-width="60" v-model="isCollapsed">
+      <Sider ref="side1" class='side_box'  hide-trigger collapsible :width='220' :collapsed-width="60" v-model='isCollapsed'>
         <Menu active-name="1-2" class="side_tit" theme="dark" width="auto" :class="menuitemClasses">
             <MenuItem name="1">
                 <!-- <Icon type="ios-navigate"></Icon> -->
@@ -177,7 +177,7 @@
               <span class="iconfont">&#xe86a;</span>
               <Dropdown>
                 <span class="demo" href="javascript:void(0)">
-                  {{this.useName}}
+                  <!-- {{this.useName}} -->
                   <Icon type="md-arrow-dropdown" size="26"/>
                 </span>
                 <DropdownMenu slot="list">
@@ -193,10 +193,10 @@
               <span class="iconfont iconfont_two">&#xe600;</span>
               <span class="iconfont iconfont_two">&#xe60e;</span>
             </div>
-            <div class="table_page">
-              <span class="table_son">
-                用户列表
-              <Icon class='call' type="ios-close" />
+            <div class="table_page" >
+              <span class="table_son" v-if="tagArrData" v-for='(itme,key) in tagArrData'>
+                {{itme.name}}
+              <Icon class='call' type="ios-close"  @click='deleteTag(key)' />
               </span>
             </div>
             <div class="Header_bottom_Two">
@@ -221,7 +221,7 @@
 </template>
 
 <script>
-let rouSet=new Set()
+let rouArr=[]
 
   import '../assets/css/iconfont.css'
     export default {
@@ -233,13 +233,11 @@ let rouSet=new Set()
                 MenuTextClass:false,
               },
               value1: false,
-              useName:JSON.parse(sessionStorage.getItem("data")).useName
+              tagArrData:[]
+              // useName:JSON.parse(sessionStorage.getItem("data")).useName
             }
         },
         computed: {
-            winTagArr () {
-              return sessionStorage.getItem('rouPath').split(",")
-            },
             rotateIcon () {
             return [
                 'menu-icon',
@@ -265,24 +263,41 @@ let rouSet=new Set()
             },
             routerUs(path,name){
               this.$router.push({path:'/index/'+path});
-              let tagObj = {
-                          path:'/index/'+path,
-                          name:name
-                        };
-              rouSet.add(tagObj);
-              console.log(rouSet)
-              // let rouArr = Array.from(rouSet);
-              // console.log(rouArr)
+              let obj = {path:'/index/'+path,name:name}
+              let istrue = true;
+              if(rouArr.length==0){
+                istrue = true
+              }else{
+                for(let i=0;i<rouArr.length;i++){
+                  if(rouArr[i].name==name){
+                    istrue=false;
+                    break
+                  }
+                }
+              }
+              if(istrue){
+                  rouArr.push(obj)
+                  this.tagArrData = rouArr
+              }
+              sessionStorage.setItem('rouArr', JSON.stringify(rouArr))
+            },
+            deleteTag(key){
+              console.log(this.tagArrDat)
+              let rouArr = this.tagArrDat.splice(key,1);
+              sessionStorage.setItem('rouArr', JSON.stringify(rouArr))
             },
             show(){
               console.log(this.MenuObj.MenuTextClass)
               this.MenuObj.MenuTextClass = true;
             }
         },
+        beforeMount(){
+            this.tagArrData = JSON.parse(sessionStorage.getItem('rouArr'))
+        },
         mounted:function(){
             document.querySelector("."+this.$refs.side1.childClasses).style.cssText = ` display:flex;flex-direction: column;`;
             document.getElementsByClassName('pallet')[0].onclick = function(){
-              document.getElementsByClassName('ivu-drawer-header-inner')[0].innerHTML = '配色方案';
+            document.getElementsByClassName('ivu-drawer-header-inner')[0].innerHTML = '配色方案';
             }
         }
     }

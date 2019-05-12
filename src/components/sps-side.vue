@@ -9,14 +9,12 @@
             </MenuItem >
         </Menu>
         <Menu active-name="1-2" id="test" theme="dark" width="auto" class="side_list" :class="menuitemClasses">
-          <MenuItem name="1" :class="MenuObj">
+          <MenuItem name="1" :class="MenuObj"  @click.native='routerUs("spsRight")'>
             <div @click = "show" >
-              <router-link to="spsRight">
                 <div class="iconfontBox">
                   <b class="iconfont iconfontSize">&#xe60e;</b>
                   <span>首页</span>
                 </div>
-              </router-link>
             </div>
           </MenuItem >
           <Submenu name="2">
@@ -187,12 +185,15 @@
           <div class="Header_bottom">
             <div class="Header_bottom_One">
               <span class="iconfont iconfont_two">&#xe600;</span>
-              <span class="iconfont iconfont_two">&#xe60e;</span>
+              <span @click='routerUs("spsRight")' class="iconfont iconfont_two" >&#xe60e;</span>
             </div>
             <div class="table_page" >
-              <span class="table_son" v-if="tagArrData" v-for='(itme,key) in tagArrData' @click.self=routerUs(itme.path) >
+              <span class="table_son" 
+                v-if="tagArrData" 
+                v-for='(itme,key) in tagArrData' 
+                @click.self='routerUs(itme.path)' >
                 {{itme.name}}
-              <Icon class='call' type="ios-close"  @click='deleteTag(key)' />
+              <Icon class='call' type="ios-close"  @click.self='deleteTag(key)' />
               </span>
             </div>
             <div class="Header_bottom_Two">
@@ -230,7 +231,8 @@ let rouArr=[]
               },
               value1: false,
               tagArrData:[],
-              useName:JSON.parse(sessionStorage.getItem("data")).useName
+              useName:JSON.parse(sessionStorage.getItem("data")).useName,
+              initBC:-1
             }
         },
         computed: {
@@ -238,7 +240,7 @@ let rouArr=[]
             return [
                 'menu-icon',
                 this.isCollapsed ? 'rotate-icon' : ''
-            ];
+              ];
             },
             menuitemClasses () {
             return [
@@ -257,8 +259,10 @@ let rouArr=[]
                   }
               })
             },
+            /**
+             * 点击路由跳转
+             */
             routerUs(path,name){
-              console.log(!name)
               if(name){
                 this.addTag(path,name)
                 this.$router.push({path:'/index/'+path});
@@ -266,7 +270,11 @@ let rouArr=[]
                 this.$router.push({path:path});
               }
             },
+            /**
+             * 给本地sessionStorage添加路由 地址 和 名字
+             */
             addTag(path,name){
+              JSON.parse(sessionStorage.getItem('rouArr'))?rouArr=JSON.parse(sessionStorage.getItem('rouArr')):rouArr
               let obj = {path:'/index/'+path,name:name}
               let istrue = true;
               if(rouArr.length==0){
@@ -285,8 +293,20 @@ let rouArr=[]
               }
               sessionStorage.setItem('rouArr', JSON.stringify(rouArr))
             },
+            /**
+             * 删除本地的tag数据
+             */
             deleteTag(index){ 
+              rouArr = JSON.parse(sessionStorage.getItem('rouArr'))
               rouArr.splice(index,1);
+              this.tagArrData = rouArr;
+              if(rouArr[index]){
+                  this.$router.push({path:rouArr[index].path})
+              }else if(index==0){
+                  this.$router.push({path:"/index/spsRight"})
+              }else{
+                  this.$router.push({path:rouArr[index-1].path})
+              }
               sessionStorage.setItem('rouArr', JSON.stringify(rouArr))
             },
             show(){
@@ -437,7 +457,7 @@ width:100%;
 height:50px;
 line-height: 50px;display:flex;
 justify-content:space-between;
-border-bottom:1px solid #fff;
+border-bottom: 1px solid #f6f6f6;
 }
 .Header_bottom{
 height:40px;
@@ -460,28 +480,33 @@ margin:0;
 font-size:20px;
 text-align:center;
 line-height:40px;
+cursor: pointer;
 }
 .table_page{
 display:flex;
+flex-wrap: nowrap;
 flex:1;
+justify-content: flex-start;
+overflow-x:auto;
 }
 .table_son{
 display:block;
-height:auto;
-background:#f6f6f6;
+background:#ffffff;
 border-top:2px solid #000;
 box-sizing:border-box;
-font-size:14px;
+font-size:15px;
 line-height:40px;
-padding:0 40px 0 15px;
+padding:0 40px 0 21px;
 border-right: 1px solid #f6f6f6;
 position:relative;
+cursor: pointer;
+ flex-shrink:0;
 }
 .call{
 position:absolute;
 right: 8px;
 top: 30%;
-font-size:16px;
+font-size:18px;
 border-radius:50%;
 }
 .call:hover{
@@ -508,5 +533,8 @@ color:#fff;
 .iconfontBtn{
 margin:0 15px 0 5px;
 font-weight:100;
+}
+.tagClass{
+  background-color: #f6f6f6;
 }
 </style>

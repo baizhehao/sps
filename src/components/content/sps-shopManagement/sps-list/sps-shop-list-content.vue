@@ -42,17 +42,23 @@ export default {
                 },
                 {
                     title: '热门',
-                    key: 'date',
+                    key: 'action',
                     sortable: true,
                     width:80,
-                    align: 'center'
+                    align: 'center',
+                    render:()=>{
+                        return
+                    }
                 },
                 {
                     title: '推荐',
-                    key: 'date',
+                    key: 'action',
                     sortable: true,
                     width:80,
-                    align: 'center'
+                    align: 'center',
+                    render:()=>{
+                        return
+                    }
                 },
                 {
                     title: '缩略图',
@@ -127,11 +133,40 @@ export default {
                     align: 'center'
                 },
                 {
-                    title: '操作',
-                    key: 'address',
-                    width:250,
-                    align: 'center'
-                }
+                        title: '操作',
+                        key: 'action',
+                        width: 250,
+                        align: 'center',
+                        render: (h, params) => {
+                            return h('div', [
+                                h('Button', {
+                                    props: {
+                                        type: 'primary',
+                                        size: 'small'
+                                    },
+                                    style: {
+                                        marginRight: '5px'
+                                    },
+                                    on: {
+                                        click: () => {
+                                            this.show(params.index)
+                                        }
+                                    }
+                                }, '编辑'),
+                                h('Button', {
+                                    props: {
+                                        type: 'error',
+                                        size: 'small'
+                                    },
+                                    on: {
+                                        click: () => {
+                                            this.remove(params.index)
+                                        }
+                                    }
+                                }, '删除')
+                            ]);
+                        }
+                    }
 
                 
             ],
@@ -166,6 +201,15 @@ export default {
     methods:{
         changeB(num){
             this.isTrue=num
+        },
+        show (index) {
+                this.$Modal.info({
+                    title: 'User Info',
+                    content: `Name：${this.data6[index].name}<br>Age：${this.data6[index].age}<br>Address：${this.data6[index].address}`
+                })
+            },
+        remove (index) {
+            this.data6.splice(index, 1);
         }
     }
 }

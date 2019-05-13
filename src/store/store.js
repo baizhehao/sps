@@ -5,29 +5,38 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
     state:{
-        //打开窗口的标签
-        // windowTag:[]
+       addShopsS:''
     },
     getters:{
-        /**
-         * 获取窗口标签
-         */
-    //    getWindowTag(state){
-    //        return state.windowTag
-    //    }
+       addShopsG(state){
+           return state.addShopsS
+       }
     },
     mutations:{
         /**
-         * 添加、删除标签
+         * 添加成功的返回值
          */
-        // addWindowTag(state,data){
-        //     new Set(state.windowTag.push(data))
-        // },
-        // deleteWindowTag(state,index){
-        //     state.windowTag.splice(index,1)
-        // }
+        addShopsM(state,data){
+            state.addShopsS = data
+        }
     },
     actions:{
-
+        /**
+         * 添加商品列表
+         */
+        addShopsA(store,str){
+            fetch('http://10.35.164.18:3000/shopsList/add',{
+                method:'POST',
+                body:str,
+                headers:{
+                    "Content-Type":"application/x-www-form-urlencoded"
+                }
+            }).then((res)=>{
+                return res.json()
+            }).then((res)=>{
+                console.log(res)
+                store.commit('addShopsM',res)
+            })
+        }
     }
 })

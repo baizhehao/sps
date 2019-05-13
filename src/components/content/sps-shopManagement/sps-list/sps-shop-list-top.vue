@@ -14,7 +14,17 @@
                 <Button type="primary" class="seachBut" size=small icon="ios-search">筛选</Button>
             </div>
             <div class="bottomBox">
-                <Button type="primary" class="seachBut addBut" size=small icon="ios-add-circle-outline">添加商品</Button>
+                <Button type="primary" @click="modal1 = true" class="seachBut addBut" size=small icon="ios-add-circle-outline">添加商品</Button>
+                <Modal
+                    width='300'
+                    v-model="modal1"
+                    title="添加商品"
+                    @on-ok="ok"
+                    @on-cancel="cancel">
+                        <div class="addClass" v-for='itme in shopsTit'>
+                            {{itme}} : <Input :placeholder='"请输入"+itme' style="width: auto" />
+                        </div>
+                </Modal>
                 <div class="topRow">
                     <label>批量操作</label>
                     <Select v-model="model1" style="width:100px">
@@ -32,6 +42,9 @@
 export default {
     data () {
             return {
+                modal1: false,
+                loading: true,
+                shopsTit:['缩略图','名称','排序','标签','售销价','成本价','市场价','分类','类型','品牌','上下架','库存'],
                 cityList: [
                     {
                         value: '全部',
@@ -48,11 +61,26 @@ export default {
                 ],
                 model1: ''
             }
+        },
+    methods:{
+        addShops(){
+            this.$emit('clickZ',obj)
+        },
+        ok () {
+                this.$Message.info('添加成功');
+        },
+        cancel () {
+            this.$Message.info('Clicked cancel');
         }
+    }
 }
 </script>
 
 <style scoped>
+.addClass{
+    text-align: center;
+    margin-bottom: 5px;
+}
 .shopBox{
     padding:15px;
     background:#f2f2f2;

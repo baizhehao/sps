@@ -8,7 +8,7 @@
                 <span>零食铺购物系统</span>
             </MenuItem >
         </Menu>
-        <Menu active-name="1-2" id="test" theme="dark" width="auto" class="side_list" :class="menuitemClasses">
+        <Menu active-name="1-2" id="test" theme="dark" width="auto" class="side_list" :class="menuitemClasses" accordion>
           <MenuItem name="1" :class="MenuObj"  @click.native='routerUs("spsRight")'>
             <div @click = "show" >
                 <div class="iconfontBox">
@@ -35,7 +35,7 @@
             </template>
             <MenuItem name="1-1" @click.self.native='routerUs("shopList","商品列表")'>商品列表</MenuItem>
             <MenuItem name="1-2">商品分类</MenuItem>
-            <MenuItem name="1-3" @click.self.native='routerUs("shopList","品牌列表")'>品牌列表</MenuItem>
+            <MenuItem name="1-3" @click.self.native='routerUs("brandList","品牌列表")'>品牌列表</MenuItem>
             <MenuItem name="1-4">商品类型</MenuItem>
             <MenuItem name="1-5">参数列表</MenuItem>
             <MenuItem name="1-6">商品评价</MenuItem>
@@ -209,7 +209,7 @@
             </div>
           </div>
         </Header>
-        <Content>
+        <Content class="contentBox">
           <router-view/>
         </Content>
       </Layout>
@@ -328,6 +328,10 @@ let rouArr=[]
 
 <style scoped>
 ::-webkit-scrollbar {display:none}
+.contentBox{
+    flex: 1;
+    overflow-y: scroll;
+}
 .layout{
 border: 1px solid #d7dde4;
 background: #f5f7f9;

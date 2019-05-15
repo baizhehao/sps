@@ -34,7 +34,7 @@
          * retuData  后台返回的数据  并进行判断
          */
          let retuData = await resData.json(); 
-
+          console.log(retuData)
          if(retuData.isLogin==1){
             sessionStorage.setItem("data",JSON.stringify(retuData))
             this.$Message.success('登录成功');

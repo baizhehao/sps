@@ -70,4 +70,8 @@ a{
   #buttom1_imp .ivu-upload-list{
     margin-top: 0 !important;
   }
+  #i-table-box .ivu-table-cell{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
 </style>

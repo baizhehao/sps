@@ -7,6 +7,9 @@ export default new Vuex.Store({
     state:{
         //打开窗口的标签
         // windowTag:[]
+        contorl_state:{
+            
+        }
     },
     getters:{
         /**

@@ -42,6 +42,7 @@ const router = new Router({
       redirect:'/index/spsRight',
       beforeEnter(to,from,next){
         let useObj = JSON.parse(sessionStorage.getItem("data"))
+        console.log(JSON.parse(sessionStorage.getItem("data")))
         if(useObj){
           next()
         }else{

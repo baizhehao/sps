@@ -260,6 +260,7 @@ let rouArr=[]
             routerUs(path,name){
               console.log(!name)
               if(name){
+                console.log(name);
                 this.addTag(path,name)
                 this.$router.push({path:'/index/'+path});
               }else{
@@ -267,7 +268,7 @@ let rouArr=[]
               }
             },
             addTag(path,name){
-              let obj = {path:'/index/'+path,name:name}
+              let obj = {path:'/index/'+path,name:name};
               let istrue = true;
               if(rouArr.length==0){
                 istrue = true

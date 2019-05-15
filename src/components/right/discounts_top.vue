@@ -56,10 +56,10 @@
         title="添加数据"
         @on-ok="ok()"
         @on-cancel="cancel">
-        ID:<Input  class="inp" placeholder="请输入id号" v-model="list.id" />
-        优惠券名称: <Input  size="small" placeholder="请输入优惠券名称" v-model="list.name" />
-        开始时间:<Input  class="inp" placeholder="请输入开始时间" v-model="list.starttime"/>
-        结束时间: <Input  size="small" placeholder="请输入结束时间" v-model="list.endtime"/>
+        ID:<Input  class="inp" placeholder="请输入id号" v-model="list.username" />
+        优惠券名称: <Input  size="small" placeholder="请输入优惠券名称" v-model="list.shenpistatus" />
+        开始时间:<Input  class="inp" placeholder="请输入开始时间" v-model="list.shenpicomments"/>
+        结束时间: <Input  size="small" placeholder="请输入结束时间" v-model="list.time"/>
     </Modal>
       </div>
   </div>
@@ -68,7 +68,7 @@
 <script>
 //这里可以导入其他文件（比如：组件，工具js，第三方插件js，json文件，图片文件等等）
 //例如：import 《组件名称》 from '《组件路径》';
-
+import querystring from 'querystring'
 export default {
 //import引入的组件需要注入到对象中才能使用
 components: {},
@@ -82,14 +82,13 @@ return {
             // name:"",
             // starttime:"",
             // endtime:""
-            list:[
-              {
-                id:"",
-                name:"",
-                starttime:"",
-                endtime:""
+            list:{
+                username:"",
+                shenpistatus:"",
+                shenpicomments:"",
+                time:""
               }
-           ]
+
 
 };
 },
@@ -102,33 +101,23 @@ watch: {},
 //方法集合
 methods: {
         ok () {
-                  //  this.$Message.info('保存成功');
+                   this.$Message.info('保存成功,请刷新页面');
                 this.$store.state.Vip=this.list;
-                console.log("www:"+ this.list.id)
-                console.log("www:"+this.list.name)
-                console.log("www:"+this.list.starttime)
-                console.log("www:"+this.list.endtime)
+                   fetch(' http://10.35.164.18:3000/histories/add',{
+                        method:"POST",
+                        body:querystring.encode(this.list),
+                        // body:six,
+                        headers:{
+                        "Content-Type":"application/x-www-form-urlencoded"
+                        }
+                        }).then((res)=>{
+                        return res.text();
+                        }).then((res)=>{
+                        // this.historyData =  JSON.parse(res);
+                        console.log(res)
+                        })
 
 
-                  //  fetch(' http://10.35.164.18:3000/histories/add',{
-                  //       method:"POST",
-                  //       body:JSON.stringify({
-                  //       username:this.list.id,
-                  //       shenpistatus:this.list.name,
-                  //       shenpicomments:this.list.starttime,
-                  //       time:this.list.endtime,
-
-                  //       }),
-                  //       // body:six,
-                  //       headers:new Headers({
-                  //       "Content-Type":"application/x-www-from-urlencoded"
-                  //       })
-                  //       }).then((res)=>{
-                  //       return res.text();
-                  //       }).then((res)=>{
-                    //     this.historyData =  JSON.parse(res);
-                  //       console.log(res)
-                  //       })
 
             },
             cancel () {

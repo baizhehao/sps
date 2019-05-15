@@ -414,10 +414,7 @@ created() {
 //生命周期 - 挂载完成（可以访问DOM元素）
 //模板编译完毕，数据也挂载完毕
 mounted() {
-  console.log(this.$store.state.Vip.id);
-  console.log(this.$store.state.Vip.name);
-  console.log(this.$store.state.Vip.starttime);
-  console.log(this.$store.state.Vip.endtime)
+
 
 },
 beforeCreate() {

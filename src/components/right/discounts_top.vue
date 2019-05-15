@@ -45,13 +45,24 @@
           <span class="iconfont">&#xe680;</span>
           筛选
           </i-button>
-          <i-button type="error">
-      <span class="iconfont"> &#xe639;</span>
 
-            添加
-            </i-button>
+
+           <Button type="primary" @click="modal1 = true">
+               <span class="iconfont"> &#xe639;</span>
+               添加
+           </Button>
+    <Modal
+        v-model="modal1"
+        title="添加数据"
+        @on-ok="ok()"
+        @on-cancel="cancel">
+        ID:<Input  class="inp" placeholder="请输入id号" v-model="list.id" />
+        优惠券名称: <Input  size="small" placeholder="请输入优惠券名称" v-model="list.name" />
+        开始时间:<Input  class="inp" placeholder="请输入开始时间" v-model="list.starttime"/>
+        结束时间: <Input  size="small" placeholder="请输入结束时间" v-model="list.endtime"/>
+    </Modal>
       </div>
-  </div>  
+  </div>
 </template>
 
 <script>
@@ -64,15 +75,65 @@ components: {},
 data() {
 //这里存放数据
 return {
-          model9: ''
+          model9: '',
+          modal1: false,
+
+            // id:"",
+            // name:"",
+            // starttime:"",
+            // endtime:""
+            list:[
+              {
+                id:"",
+                name:"",
+                starttime:"",
+                endtime:""
+              }
+           ]
+
 };
 },
 //监听属性 类似于data概念
-computed: {},
+computed: {
+
+},
 //监控data中的数据变化
 watch: {},
 //方法集合
 methods: {
+        ok () {
+                  //  this.$Message.info('保存成功');
+                this.$store.state.Vip=this.list;
+                console.log("www:"+ this.list.id)
+                console.log("www:"+this.list.name)
+                console.log("www:"+this.list.starttime)
+                console.log("www:"+this.list.endtime)
+
+
+                  //  fetch(' http://10.35.164.18:3000/histories/add',{
+                  //       method:"POST",
+                  //       body:JSON.stringify({
+                  //       username:this.list.id,
+                  //       shenpistatus:this.list.name,
+                  //       shenpicomments:this.list.starttime,
+                  //       time:this.list.endtime,
+
+                  //       }),
+                  //       // body:six,
+                  //       headers:new Headers({
+                  //       "Content-Type":"application/x-www-from-urlencoded"
+                  //       })
+                  //       }).then((res)=>{
+                  //       return res.text();
+                  //       }).then((res)=>{
+                    //     this.historyData =  JSON.parse(res);
+                  //       console.log(res)
+                  //       })
+
+            },
+            cancel () {
+                this.$Message.info('未保存');
+            },
 
 },
 //生命周期 - 创建完成（可以访问当前this实例）

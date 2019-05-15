@@ -40,14 +40,15 @@ const router = new Router({
       name: 'index',
       component: index,
       redirect:'/index/spsRight',
-      // beforeEnter(to,from,next){
-      //   let useObj = JSON.parse(sessionStorage.getItem("data"))
-      //   if(useObj){
-      //     next()
-      //   }else{
-      //     next("/")
-      //   }
-      // },
+      beforeEnter(to,from,next){
+        let useObj = JSON.parse(sessionStorage.getItem("data"))
+        console.log(JSON.parse(sessionStorage.getItem("data")))
+        if(useObj){
+          next()
+        }else{
+          next("/")
+        }
+      },
       children:[
         {path:"usList",component:usList},
         {path:"withdrawList",component:withdrawList},

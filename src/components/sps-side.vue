@@ -264,6 +264,7 @@ let rouArr=[]
              */
             routerUs(path,name){
               if(name){
+                console.log(name);
                 this.addTag(path,name)
                 this.$router.push({path:'/index/'+path});
               }else{

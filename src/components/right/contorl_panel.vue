@@ -15,11 +15,62 @@
                 <label>手机号：</label><Input class="input_One" placeholder="收货人手机号" style="width: 300px" />
             </div>
             <div class="labelBox">
-               <Button class="bottomBox" type="primary"><label class="iconfont">&#xe67a;</label>筛选</Button>
-               <Button class="bottomBox" type="primary"><label class="iconfont">&#xe61f;</label>批量支付</Button>
-               <Button class="bottomBox" type="primary"><label class="iconfont">&#xe608;</label>取消</Button>
-               <Button class="bottomBox" type="primary"><label class="iconfont">&#xe60f;</label>导出</Button>
-               <Button class="bottomBox" type="primary"><label class="iconfont">&#xe608;</label>批量打印快递单</Button>
+                <Button class="bottomBox" type="primary" @screen = "screen_btn"><label class="iconfont">&#xe67a;</label>筛选</Button>
+                <Button class="bottomBox" type="primary"><label class="iconfont">&#xe61f;</label>批量支付</Button>
+                <Button class="bottomBox" type="primary"><label class="iconfont">&#xe608;</label>取消</Button>
+                <Button class="bottomBox" type="primary" @click = "modal12 = true"><label class="iconfont">&#xe60f;</label>增加</Button>
+                <Modal v-model="modal12" @on-ok = "ok" draggable scrollable title="添加" style="text-align:center">
+                    <div class="addCon">
+                        <label>订单号：</label>
+                        <input type="text" v-model='addbtn.name' placeholder="请输入订单号"/>
+                    </div>
+                    <div class="addCon">
+                        <label>打印：</label>
+                        <input type="text" v-model='addbtn.age'/>
+                    </div>
+                    <div class="addCon">
+                        <label>下单时间：</label>
+                        <input type="text" v-model='addbtn.address' placeholder="请输入下单时间"/>
+                    </div>
+                    <div class="addCon">
+                        <label>订单状态：</label>
+                        <input type="text" v-model='addbtn.odd' placeholder="请输入订单状态"/>
+                    </div>
+                    <div class="addCon">
+                        <label>售后状态：</label>
+                        <input type="text" v-model='addbtn.after' placeholder="请输入售后状态"/>
+                    </div>
+                    <div class="addCon">
+                        <label>用户名：</label>
+                        <input type="text" v-model='addbtn.username' placeholder="请输入用户名"/>
+                    </div>
+                    <div class="addCon">
+                        <label>收货人手机号：</label>
+                        <input type="text" v-model='addbtn.phone' placeholder="请输入收货人手机号"/>
+                    </div>
+                    <div class="addCon">
+                        <label>收货地址：</label>
+                        <input type="text" v-model='addbtn.take' placeholder="请输入收货地址"/>
+                    </div>
+                    <div class="addCon">
+                        <label>支付状态：</label>
+                        <input type="text" v-model='addbtn.pay' placeholder="请输入支付状态"/>
+                    </div>
+                    <div class="addCon">
+                        <label>发货状态：</label>
+                        <input type="text" v-model='addbtn.deliver' placeholder="请输入发货状态"/>
+                    </div>
+                    <div class="addCon">
+                        <label>订单总额：</label>
+                        <input type="text" v-model='addbtn.gross' placeholder="请输入订单总额"/>
+                    </div>
+                    <div class="addCon">
+                        <label>订单来源：</label>
+                        <input type="text" v-model='addbtn.root' placeholder="请输入订单来源"/>
+                    </div>
+                    
+                </Modal>
+                <Button class="bottomBox" type="primary"><label class="iconfont">&#xe608;</label>批量打印快递单</Button>
             </div>
         </div>
         <div class="contorl_bottom">
@@ -44,40 +95,93 @@
 
 <script>
 import contorl_son from "./contorl_son"
+import querystring from "querystring"
     export default {
         data () {
             return {
+                modal12:false,
                 cityList: [
                     {
-                        value: 'New York',
-                        label: 'New York'
+                        value: '全部',
+                        label: '全部'
                     },
                     {
-                        value: 'London',
-                        label: 'London'
+                        value: 'PC页面',
+                        label: 'PC页面'
                     },
                     {
-                        value: 'Sydney',
-                        label: 'Sydney'
+                        value: 'H5页面',
+                        label: 'H5页面'
                     },
                     {
-                        value: 'Ottawa',
-                        label: 'Ottawa'
+                        value: '微信小程序',
+                        label: '微信小程序'
                     },
                     {
-                        value: 'Paris',
-                        label: 'Paris'
+                        value: '支付宝小程序',
+                        label: '支付宝小程序'
                     },
                     {
-                        value: 'Canberra',
-                        label: 'Canberra'
+                        value: 'APP',
+                        label: 'APP'
                     }
                 ],
-                model1: ''
+                model1: '',
+                addbtn:{
+                    name:'',
+                    age:'',
+                    address:'',
+                    odd:'',
+                    after:'',
+                    username:'',
+                    phone:'',
+                    take:'',
+                    pay:'',
+                    deliver:'',
+                    gross:'',
+                    root:''
+                }
             }
         },
         components:{
             contorl_son
+        },
+        methods:{
+            screen_btn(data1){
+
+            },
+            ok(){
+                console.log(this.addbtn);
+                let six = querystring.encode(this.addbtn)
+                fetch(' http://10.35.164.18:3000/orderMana/add',{
+                    method:"POST",
+                    // body:JSON.stringify({
+                    //     name:this.addbtn.addsex,
+                    //     age:this.addbtn.addsex01,
+                    //     address:this.addbtn.addsex02,
+                    //     odd:this.addbtn.addsex03,
+                    //     after:this.addbtn.addsex04,
+                    //     username:this.addbtn.addsex05,
+                    //     phone:this.addbtn.addsex06,
+                    //     take:this.addbtn.addsex07,
+                    //     pay:this.addbtn.addsex08,
+                    //     deliver:this.addbtn.addsex09,
+                    //     gross:this.addbtn.addsex10,
+                    //     root:this.addbtn.addsex11
+                    // }),
+                    body:six,
+                    headers:{
+                        "Content-Type":"application/x-www-form-urlencoded"
+                    }
+                }).then((res)=>{
+                    return res.text();
+                }).then((res)=>{
+                    console.log(res)
+                    this.$store.state.contorl_state = res;
+                    console.log(this.$store.state.contorl_state)
+                })
+
+            }
         }
     }
 </script>
@@ -168,6 +272,15 @@ import contorl_son from "./contorl_son"
     .orange{
         background:orange !important;
         color:#fff !important;
+    }
+    .addCon{
+        margin-bottom:10px;
+    }
+    .addCon label{
+        display:inline-block;
+        cursor:pointer;
+        width:112px;
+        text-align:right;
     }
 
     

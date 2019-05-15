@@ -5,33 +5,35 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
     state:{
+        getShopsListS:'',
         //打开窗口的标签
         // windowTag:[]
-        Vip:{
+        contorl_state:{
 
         }
     },
     getters:{
-        /**
-         * 获取窗口标签
-         */
-    //    getWindowTag(state){
-    //        return state.windowTag
-    //    }
+        getShopsListG(state){
+           return state.getShopsListS
+       }
     },
     mutations:{
         /**
-         * 添加、删除标签
+         * 添加成功的返回值
          */
-        // addWindowTag(state,data){
-        //     new Set(state.windowTag.push(data))
-        // },
-        // deleteWindowTag(state,index){
-        //     state.windowTag.splice(index,1)
-        // }
+        getShopsListM(state,shopList){
+            state.getShopsListS = shopList
+        }
     },
     actions:{
-
-    },
-
+        /**
+         * 添加商品列表
+         */
+        getShopsList(store,that){
+            that.$axios.get('http://10.35.164.18:3000/shopsList/getshopslist')
+                .then((res)=>{
+                    store.commit('getShopsListM',res.data)
+                })
+        }
+    }
 })

@@ -87,8 +87,13 @@ data(){
 methods:{
  f1(){
   var mydata={num:this.num++,name:this.names,type:this.types,hui1:"是",hui2:"是",hui3:'是'}
-  this.list.push(mydata)
-  this.names=""
+  if(this.names==""||this.types==""){
+      alert("请输入内容,文本框输入内容不能为空")
+  }else{
+      this.list.push(mydata)
+      this.names=""
+  }
+  
  },
  dele(index){
     var r=confirm("你确认要删除吗？");

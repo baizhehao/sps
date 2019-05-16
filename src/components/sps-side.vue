@@ -114,7 +114,13 @@
                 <span>报表统计</span>
               </div>
             </template>
+<<<<<<< HEAD
+             <router-link to="finance">
+            <MenuItem name="1-34">商品销量</MenuItem>
+             </router-link>
+=======
             <MenuItem name="1-34" @click.self.native='routerUs("finance","商品销量")'>商品销量</MenuItem>
+>>>>>>> dev
             <MenuItem name="1-35">财务收款</MenuItem>
             <MenuItem name="1-36">用户收藏统计</MenuItem>
             <MenuItem name="1-37">订单销量</MenuItem>
@@ -264,6 +270,7 @@ let rouArr=[]
              */
             routerUs(path,name){
               if(name){
+                console.log(name);
                 this.addTag(path,name)
                 this.$router.push({path:'/index/'+path});
               }else{

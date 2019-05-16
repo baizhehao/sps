@@ -5,15 +5,16 @@
          <form class="third-form">
             <div class="form-left">
                 <span>消息名称：</span>
-                <input type="text" placeholder="请输入品牌名称关键字">
+                <input type="text" placeholder="请输入品牌名称关键字" v-model="names">
             </div>
             <div class="form-center">
                 <span>消息类型：</span>
-                <input type="text" placeholder="请选择更新时间">
+                <input type="text" placeholder="请输入消息类型" v-model="types">
             </div>
             <div class="form-right">
-                <Button type="error" icon="ios-search" class="thirdbutton1">筛选</Button>
-                <Button type="error" icon="ios-add-circle-outline">添加</Button>
+                <span>信息筛选：</span>
+                <input type="text" placeholder="请输入筛选条件">
+                <Button type="error" icon="ios-add-circle-outline" @click="f1">添加</Button>
             </div>
          </form>
          <!-- 增删改查表单 -->
@@ -23,7 +24,7 @@
                  <div class="table-top">
                     <table class="table1">
                         <tr class="table1-tr">
-                            <td></td>
+                            <td>编号</td>
                             <td>消息名称</td>
                             <td>消息类型</td>
                             <td>关注回复</td>
@@ -38,18 +39,17 @@
                   <div class="table-content">
                      <div class="table-center">
                          <table class="table2">
-                            <tr class="table1-tr1">
-                                <td>1</td>
-                                <td>规划图</td>
-                                <td>图文消息</td>
-                                <td>是</td>
-                                <td>是</td>
-                                <td>是</td>
+                            <tr class="table1-tr1" v-for="(item,id) in list" :key="id.num">
+                                <td>{{item.num}}</td>
+                                <td>{{item.name}}</td>
+                                <td>{{item.type}}</td>
+                                <td>{{item.hui1}}</td>
+                                <td>{{item.hui2}}</td>
+                                <td>{{item.hui3}}</td>
                                 <td>2019-03-26</td>
                                 <td class="finaltd">
-                                    <Button type="error">编辑图文</Button>
                                     <Button type="error">编辑</Button>
-                                    <Button type="info">删除</Button>
+                                    <Button type="info" v-on:click="dele(id.num)">删除</Button>
                                 </td>
                             </tr>
                     </table>
@@ -72,7 +72,42 @@
 
 <script>
 export default {
-name:'message'
+name:'message',
+data(){
+    return{
+        list:[
+            {num:1,name:'规划图',type:'图文类型',hui1:"是",hui2:"是",hui3:'是',time:new Date()}
+        ],
+        names:"",
+        types:"",
+        num:2,
+        shaixuan:""
+    }
+},
+methods:{
+ f1(){
+  var mydata={num:this.num++,name:this.names,type:this.types,hui1:"是",hui2:"是",hui3:'是'}
+  if(this.names==""||this.types==""){
+      alert("请输入内容,文本框输入内容不能为空")
+  }else{
+      this.list.push(mydata)
+      this.names=""
+  }
+  
+ },
+ dele(index){
+    var r=confirm("你确认要删除吗？");
+    if(r==true){
+      this.list.splice(index,1)
+    }else{
+        return
+    }
+     
+ }
+},
+mounted(){
+
+}
 }
 </script>
 
@@ -115,6 +150,9 @@ flex:1;
 }
 .form-right{
 flex:1;
+}
+.form-right input{
+    margin-right:20px;
 }
 .form-center{
 flex:1;
@@ -175,12 +213,17 @@ flex:1;
 }
 /* 表格内容 */
 .table2{
-      display:flex; 
+      display:flex;
+      flex-direction: column; 
 }
 .table1-tr1{
     display:flex;
     width:100%;
     line-height:36px; 
     justify-content:space-around;
+}
+.table1-tr1 td{
+    text-align:center;
+    flex:1; 
 }
 </style>

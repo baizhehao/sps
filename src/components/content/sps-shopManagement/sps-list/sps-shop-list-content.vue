@@ -17,14 +17,14 @@
             </ul>
             
             <div class="shopListContent">
-                <Table border ref="selection" height="573" v-if='childData' :columns="columns4" :data="childData"></Table>
+                <Table border ref="selection" height="573" v-if='ajaxHistoryData' :columns="columns4" :data="data5"></Table>
                 <Col class="demo-spin-col" fix v-else span="8">
                     <Spin fix>
                         <Icon type="ios-loading" size=30 class="demo-spin-icon-load"></Icon>
                         <div>Loading</div>
                     </Spin>
                 </Col>
-                <Page :total="childData.length" size="small" :page-size='5' show-total show-elevator show-sizer />
+                <Page @on-change="changepage" @on-page-size-change='pagesizechange' :pageSizeOpts="pageArr" v-if='ajaxHistoryData' :total="dataCount" size="small"  show-total show-elevator show-sizer />
             </div>
         </div>
     </div>
@@ -34,7 +34,6 @@
 export default {
     data(){
         return{
-            isShow:false,
             isTrue:-1,
             columns4: [
                 {
@@ -207,10 +206,24 @@ export default {
                     }
 
                 
-            ]
+            ],
+            //分页
+            ajaxHistoryData:this.childData,//总数据
+            pageSize: 10,//每页显示多少条
+            dataCount: 0,//总条数
+            pageCurrent: 1,//当前页
+            data5: [],//显示的数据
+            pageArr:[10,20]
         }
     },
-    props:["childData"],
+    props:["childData"],//总数据
+    watch:{
+        childData(newVal){
+            this.ajaxHistoryData=newVal;
+            this.getShopsList()
+        },
+
+    },
     methods:{
         changeB(num){
             this.isTrue=num
@@ -223,8 +236,33 @@ export default {
             },
         remove (index) {
             this.data6.splice(index, 1);
+        },
+        // 获取商品信息
+        getShopsList(){
+            // 保存取到的所有数据
+            this.ajaxHistoryData = this.childData
+            this.dataCount = this.childData.length;
+            // 初始化显示，小于每页显示条数，全显，大于每页显示条数，取前每页条数显示
+            if(this.childData.length < this.pageSize){
+                this.data5 = this.ajaxHistoryData;
+            }else{
+                this.data5 = this.ajaxHistoryData.slice(0,this.pageSize);
+            }
+        },
+        changepage(index){
+                var _start = ( index - 1 ) * this.pageSize;
+                var _end = index * this.pageSize;
+                this.data5 = this.ajaxHistoryData.slice(_start,_end);
+        },
+        /**
+         * 点击每页20 ，每页显示20条
+         */
+        pagesizechange(num){
+             this.pageSize=num
+              this.getShopsList()
         }
     }
+   
 }
 </script>
 

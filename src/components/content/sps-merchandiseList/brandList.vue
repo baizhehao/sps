@@ -232,11 +232,11 @@ let testData = {
                     }
                 ],
                 //分页
-                ajaxHistoryData:[],
+                ajaxHistoryData:[],//总数据
                 pageSize: 5,//每页显示多少条
                 dataCount: 0,//总条数
                 pageCurrent: 1,//当前页
-                data5: []
+                data5: [] //显示的数据
             }
         },
         methods: {

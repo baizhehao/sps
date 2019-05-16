@@ -40,14 +40,14 @@ const router = new Router({
       name: 'index',
       component: index,
       redirect:'/index/spsRight',
-      // beforeEnter(to,from,next){
-      //   let useObj = JSON.parse(sessionStorage.getItem("data"))
-      //   if(useObj){
-      //     next()
-      //   }else{
-      //     next("/")
-      //   }
-      // },
+      beforeEnter(to,from,next){
+        let useObj = JSON.parse(sessionStorage.getItem("data"))
+        if(useObj){
+          next()
+        }else{
+          next("/")
+        }
+      },
       children:[
         {path:"usList",component:usList},
         {path:"withdrawList",component:withdrawList},
@@ -69,5 +69,24 @@ const router = new Router({
     }
   ]
 })
+
+// router.beforeEach((to,from,next)=>{
+//   let routerPath = JSON.parse(sessionStorage.getItem('data'));
+//   let toPath = to.path;
+//   let nextPath=''
+//   if(!routerPath){
+//     nextPath='/'
+//   }else{
+//     // for(let i=0;i<routerPath.length;i++){
+//     //   if(toPath==routerPath[i]){
+
+//     //   }
+//     // }
+//   }
+//   next({path:nextPath})
+// })
+
+
+
 
 export default router

@@ -15,9 +15,16 @@
                     库存报警<span class="navTag navTag4">9</span>
                 </li>
             </ul>
+            
             <div class="shopListContent">
-                <Table border ref="selection" height="573" :columns="columns4" :data="data1"></Table>
-                <Page :total="40" size="small" show-elevator show-sizer />
+                <Table border ref="selection" height="573" v-if='childData' :columns="columns4" :data="childData"></Table>
+                <Col class="demo-spin-col" fix v-else span="8">
+                    <Spin fix>
+                        <Icon type="ios-loading" size=30 class="demo-spin-icon-load"></Icon>
+                        <div>Loading</div>
+                    </Spin>
+                </Col>
+                <Page :total="childData.length" size="small" :page-size='5' show-total show-elevator show-sizer />
             </div>
         </div>
     </div>
@@ -27,6 +34,7 @@
 export default {
     data(){
         return{
+            isShow:false,
             isTrue:-1,
             columns4: [
                 {
@@ -42,93 +50,123 @@ export default {
                 },
                 {
                     title: '热门',
-                    key: 'action',
                     sortable: true,
                     width:80,
                     align: 'center',
-                    render:()=>{
-                        return
+                    render:(h, params) => {
+                        return h('div', [
+                        h('i-switch', { //数据库1是已处理，0是未处理
+                            props: {
+                                type: 'primary',
+                                value: true //params.row.treatment === 0  //控制开关的打开或关闭状态，官网文档属性是value
+                            },
+                            style: {
+                                marginRight: '5px'
+                            },
+                            on: {
+                                'on-change': (value) => {//触发事件是on-change,用双引号括起来，
+                                                        //参数value是回调值，并没有使用到
+                                    //this.switch(params.index) //params.index是拿到table的行序列，可以取到对应的表格值
+                                }
+                            }
+                        }, )
+                        ]);
                     }
                 },
                 {
                     title: '推荐',
-                    key: 'action',
                     sortable: true,
                     width:80,
                     align: 'center',
-                    render:()=>{
-                        return
+                    render:(h, params) => {
+                        return h('div', [
+                        h('i-switch', { //数据库1是已处理，0是未处理
+                            props: {
+                                type: 'primary',
+                                value: true  //控制开关的打开或关闭状态，官网文档属性是value
+                            },
+                            style: {
+                                marginRight: '5px'
+                            },
+                            on: {
+                                'on-change': (value) => {//触发事件是on-change,用双引号括起来，
+                                                        //参数value是回调值，并没有使用到
+                                    //this.switch(params.index) //params.index是拿到table的行序列，可以取到对应的表格值
+                                }
+                            }
+                        }, )
+                        ]);
                     }
                 },
                 {
                     title: '缩略图',
-                    key: 'address',
+                    key: 'smaPic',
                     width:100,
                     align: 'center'
                 },
                 {
                     title: '名称',
-                    key: 'address',
+                    key: 'comName',
                     width:250,
                     align: 'center'
                 },
                 {
                     title: '排序',
-                    key: 'address',
+                    key: 'sort',
                     width:80,
                     align: 'center'
                 },
                 {
                     title: '标签',
-                    key: 'address',
+                    key: 'comTag',
                     width:120,
                     align: 'center'
                 },
                 {
                     title: '售销价',
-                    key: 'address',
+                    key: 'salesPrice',
                     width:100,
                     align: 'center'
                 },
                 {
                     title: '成本价',
-                    key: 'address',
+                    key: 'costPrice',
                     width:100,
                     align: 'center'
                 },
                 {
                     title: '市场价',
-                    key: 'address',
+                    key: 'marketPrice',
                     width:100,
                     align: 'center'
                 },
                 {
                     title: '分类',
-                    key: 'address',
+                    key: 'classify',
                     width:150,
                     align: 'center'
                 },
                 {
                     title: '类型',
-                    key: 'address',
+                    key: 'type',
                     width:150,
                     align: 'center'
                 },
                 {
                     title: '品牌',
-                    key: 'address',
+                    key: 'brand',
                     width:100,
                     align: 'center'
                 },
                 {
                     title: '上下架',
-                    key: 'address',
+                    key: 'standUpAndDown',
                     width:100,
                     align: 'center'
                 },
                 {
                     title: '库存',
-                    key: 'address',
+                    key: 'inventory',
                     width:100,
                     align: 'center'
                 },
@@ -169,35 +207,10 @@ export default {
                     }
 
                 
-            ],
-            data1: [
-                {
-                    id: '1',
-                    age: 18,
-                    address: 'New York No. 1 Lake Park',
-                    date: '2016-10-03'
-                },
-                {
-                    id: '2',
-                    age: 24,
-                    address: 'London No. 1 Lake Park',
-                    date: '2016-10-01'
-                },
-                {
-                    id: '3',
-                    age: 30,
-                    address: 'Sydney No. 1 Lake Park',
-                    date: '2016-10-02'
-                },
-                {
-                    id: '4',
-                    age: 26,
-                    address: 'Ottawa No. 2 Lake Park',
-                    date: '2016-10-04'
-                }
             ]
         }
     },
+    props:["childData"],
     methods:{
         changeB(num){
             this.isTrue=num
@@ -216,6 +229,20 @@ export default {
 </script>
 
 <style scoped>
+ .demo-spin-icon-load{
+        animation: ani-demo-spin 1s linear infinite;
+    }
+    @keyframes ani-demo-spin {
+        from { transform: rotate(0deg);}
+        50%  { transform: rotate(180deg);}
+        to   { transform: rotate(360deg);}
+    }
+    .demo-spin-col{
+        height: 573px;
+        width:1006px;
+        position: absolute;
+        font-size:30px;
+    }
 .shopContent{
     background:#ffffff;
     padding: 10px 10px 0 10px;
@@ -271,3 +298,5 @@ export default {
     border-right-color: #fff;
 }
 </style>
+
+

@@ -23,6 +23,7 @@
     methods:{
       async loginVerify(dataObj){
         let bodyObj = querystring.encode(dataObj)
+        console.log(bodyObj);
         let resData = await fetch("http://10.35.164.18:3000/login/select",{
                                   method:"POST",
                                   body:bodyObj,
@@ -34,14 +35,15 @@
          * retuData  后台返回的数据  并进行判断
          */
          let retuData = await resData.json(); 
-
+          console.log(retuData)
          if(retuData.isLogin==1){
             sessionStorage.setItem("data",JSON.stringify(retuData))
+            console.log(JSON.stringify(retuData))
             this.$Message.success('登录成功');
             this.$router.push('/index');
-         }else{
+        }else{
             this.$Message.error('用户名或密码错误');
-         }  
+        }  
       }
     }
   }

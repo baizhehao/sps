@@ -45,34 +45,84 @@
           <span class="iconfont">&#xe680;</span>
           筛选
           </i-button>
-          <i-button type="error">
-      <span class="iconfont"> &#xe639;</span>
 
-            添加
-            </i-button>
+
+           <Button type="primary" @click="modal1 = true">
+               <span class="iconfont"> &#xe639;</span>
+               添加
+           </Button>
+    <Modal
+        v-model="modal1"
+        title="添加数据"
+        @on-ok="ok()"
+        @on-cancel="cancel">
+        ID:<Input  class="inp" placeholder="请输入id号" v-model="list.username" />
+        优惠券名称: <Input  size="small" placeholder="请输入优惠券名称" v-model="list.shenpistatus" />
+        开始时间:<Input  class="inp" placeholder="请输入开始时间" v-model="list.shenpicomments"/>
+        结束时间: <Input  size="small" placeholder="请输入结束时间" v-model="list.time"/>
+    </Modal>
       </div>
-  </div>  
+  </div>
 </template>
 
 <script>
 //这里可以导入其他文件（比如：组件，工具js，第三方插件js，json文件，图片文件等等）
 //例如：import 《组件名称》 from '《组件路径》';
-
+import querystring from 'querystring'
 export default {
 //import引入的组件需要注入到对象中才能使用
 components: {},
 data() {
 //这里存放数据
 return {
-          model9: ''
+          model9: '',
+          modal1: false,
+
+            // id:"",
+            // name:"",
+            // starttime:"",
+            // endtime:""
+            list:{
+                username:"",
+                shenpistatus:"",
+                shenpicomments:"",
+                time:""
+              }
+
+
 };
 },
 //监听属性 类似于data概念
-computed: {},
+computed: {
+
+},
 //监控data中的数据变化
 watch: {},
 //方法集合
 methods: {
+        ok () {
+                   this.$Message.info('保存成功,请刷新页面');
+                this.$store.state.Vip=this.list;
+                   fetch(' http://10.35.164.18:3000/histories/add',{
+                        method:"POST",
+                        body:querystring.encode(this.list),
+                        // body:six,
+                        headers:{
+                        "Content-Type":"application/x-www-form-urlencoded"
+                        }
+                        }).then((res)=>{
+                        return res.text();
+                        }).then((res)=>{
+                        // this.historyData =  JSON.parse(res);
+                        console.log(res)
+                        })
+
+
+
+            },
+            cancel () {
+                this.$Message.info('未保存');
+            },
 
 },
 //生命周期 - 创建完成（可以访问当前this实例）
